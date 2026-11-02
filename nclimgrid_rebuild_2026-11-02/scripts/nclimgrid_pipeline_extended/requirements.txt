@@ -1,0 +1,8 @@
+# Python 3.12.3. Versions used for the archived runs (2026-10-26).
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+matplotlib==3.11.2
+netCDF4==1.7.4
+requests==2.34.2
+python-docx==1.2.0

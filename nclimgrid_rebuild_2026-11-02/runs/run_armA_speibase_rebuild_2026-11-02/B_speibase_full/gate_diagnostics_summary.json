@@ -1,0 +1,23 @@
+{
+ "SPEI-1": {
+  "domain_finite_share": 0.7455916153055981,
+  "months_failing_gate_either_pole": 296,
+  "gate_passing_months": 232,
+  "of_gate_passers_failing_majority": 186,
+  "cdpe_months": 46
+ },
+ "SPEI-3": {
+  "domain_finite_share": 0.7455932203389829,
+  "months_failing_gate_either_pole": 315,
+  "gate_passing_months": 213,
+  "of_gate_passers_failing_majority": 165,
+  "cdpe_months": 48
+ },
+ "SPEI-6": {
+  "domain_finite_share": 0.7455932203389829,
+  "months_failing_gate_either_pole": 299,
+  "gate_passing_months": 229,
+  "of_gate_passers_failing_majority": 178,
+  "cdpe_months": 51
+ }
+}

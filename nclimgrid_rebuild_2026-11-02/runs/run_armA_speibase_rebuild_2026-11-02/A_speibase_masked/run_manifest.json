@@ -1,0 +1,68 @@
+{
+  "run": "A_speibase_masked",
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "synthetic": false,
+  "detector": "cdpe_sens.author_detector (author's published detector)",
+  "detector_params": {
+    "majority_frac": 0.5,
+    "max_na_frac": 0.1,
+    "radius_deg": [
+      3.0,
+      4.0,
+      5.0
+    ],
+    "threshold": [
+      1.0,
+      1.5,
+      2.0
+    ]
+  },
+  "period": [
+    "1980-01",
+    "2023-12"
+  ],
+  "n_scenarios": 27,
+  "grid": {
+    "lat": [
+      25.25,
+      49.75,
+      50
+    ],
+    "lon": [
+      -125.25,
+      -66.75,
+      118
+    ]
+  },
+  "baseline": {
+    "index": "SPEI-1",
+    "threshold": 1.5,
+    "radius_deg": 4.0,
+    "majority_frac": 0.5,
+    "max_na_frac": 0.1
+  },
+  "input_files": [
+    {
+      "index": "SPEI-1",
+      "path": "data/spei01.nc",
+      "sha256": "fff779babfc2dd50ccc84afce59ba66ec8d5f23d1263512b0fb030172ece3bc3"
+    },
+    {
+      "index": "SPEI-3",
+      "path": "data/spei03.nc",
+      "sha256": "31423f8ddeed2de31e4fb5e1325ded3859bd0cc88157b28a4ab1cb846812441e"
+    },
+    {
+      "index": "SPEI-6",
+      "path": "data/spei06.nc",
+      "sha256": "91f47f21444d83913558dd7f6a637820af4b2ee158a1a5ecaddaca694500c174"
+    }
+  ],
+  "note": "Masked control: SPEIbase v2.10 values with the nClimGrid product's static 0.5-degree valid-cell mask (3,575 of 5,900 cells) applied on top; masked cells set to NaN, values elsewhere unchanged.",
+  "mask_source": "data_nclimgrid/agg05/spei{01,03,06}_nclimgrid_gamma_05deg.nc (finite mask, static across the window, identical across timescales)",
+  "mask_valid_cells": 3575
+}

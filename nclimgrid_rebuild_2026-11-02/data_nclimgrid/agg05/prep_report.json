@@ -1,0 +1,160 @@
+{
+  "variant": "gamma",
+  "indices": {
+    "SPEI-1": {
+      "source_file": "nclimgrid-spei-gamma-01.nc",
+      "source_sha256": "9d3583ae77485a64a1644f6ce068740597e5395a0ab148b82ee1b22b018091a5",
+      "source_bytes": 2300698427,
+      "variable": "spei_01",
+      "dims": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "global_attrs": {
+        "date_created": "2026-10-04  16:06:50",
+        "date_modified": "2026-10-04  16:06:50",
+        "title": "SPEI/Gamma 1-month values computed by NIDIS/NCEI/NOAA, for internal use only",
+        "source": "NIDIS/NCEI/NOAA",
+        "summary": "SPEI/Gamma 1-month values computed by NIDIS/NCEI/NOAA, for internal use only",
+        "institution": "National Centers for Environmental Information (NCEI), NESDIS, NOAA, U.S. Department of Commerce",
+        "ncei_template_version": "NCEI_NetCDF_Grid_Template_v2.0",
+        "standard_name_vocabulary": "Standard Name Table v35",
+        "naming_authority": "gov.noaa.ncei",
+        "Conventions": "CF-1.6, ACDD-1.3",
+        "geospatial_lat_min": "24.5625",
+        "geospatial_lat_max": "49.354168",
+        "geospatial_lon_min": "-124.6875",
+        "geospatial_lon_max": "-67.020836",
+        "geospatial_lat_units": "degrees_north",
+        "geospatial_lon_units": "degrees_east"
+      },
+      "variable_attrs": {
+        "calibration_start_year": "1895",
+        "calibration_end_year": "2014",
+        "_FillValue": "-999.9",
+        "missing_value": "-999.9",
+        "valid_min": "-3.09",
+        "valid_max": "3.09",
+        "cell_methods": "time: standard_deviation (SPEI at 1 month scale)",
+        "long_name": "SPEI/Gamma 1-month",
+        "standard_name": "SPEI/Gamma 1-month"
+      },
+      "file_months": [
+        "1895-01",
+        "2026-09"
+      ],
+      "domain_endpoint_last_valid_month": "2026-09",
+      "valid_cells_first_month": 3575,
+      "valid_cells_2020_01": 3575,
+      "agg_file": "spei01_nclimgrid_gamma_05deg.nc",
+      "agg_sha256": "1aea1d3c28c45e98a1226c08e95b6adf7ca70de9089d668a424b9ce370d39bb0"
+    },
+    "SPEI-3": {
+      "source_file": "nclimgrid-spei-gamma-03.nc",
+      "source_sha256": "66b36a5ab1ea5d5207b4c9a688925157195449934469888054230a78a8ee32c3",
+      "source_bytes": 2310127139,
+      "variable": "spei_03",
+      "dims": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "global_attrs": {
+        "date_created": "2026-10-04  16:36:56",
+        "date_modified": "2026-10-04  16:36:56",
+        "title": "SPEI/Gamma 3-month values computed by NIDIS/NCEI/NOAA, for internal use only",
+        "source": "NIDIS/NCEI/NOAA",
+        "summary": "SPEI/Gamma 3-month values computed by NIDIS/NCEI/NOAA, for internal use only",
+        "institution": "National Centers for Environmental Information (NCEI), NESDIS, NOAA, U.S. Department of Commerce",
+        "ncei_template_version": "NCEI_NetCDF_Grid_Template_v2.0",
+        "standard_name_vocabulary": "Standard Name Table v35",
+        "naming_authority": "gov.noaa.ncei",
+        "Conventions": "CF-1.6, ACDD-1.3",
+        "geospatial_lat_min": "24.5625",
+        "geospatial_lat_max": "49.354168",
+        "geospatial_lon_min": "-124.6875",
+        "geospatial_lon_max": "-67.020836",
+        "geospatial_lat_units": "degrees_north",
+        "geospatial_lon_units": "degrees_east"
+      },
+      "variable_attrs": {
+        "calibration_start_year": "1895",
+        "calibration_end_year": "2014",
+        "_FillValue": "-999.9",
+        "missing_value": "-999.9",
+        "valid_min": "-3.09",
+        "valid_max": "3.09",
+        "cell_methods": "time: standard_deviation (SPEI at 3 month scale)",
+        "long_name": "SPEI/Gamma 3-month",
+        "standard_name": "SPEI/Gamma 3-month"
+      },
+      "file_months": [
+        "1895-01",
+        "2026-09"
+      ],
+      "domain_endpoint_last_valid_month": "2026-09",
+      "valid_cells_first_month": 3575,
+      "valid_cells_2020_01": 3575,
+      "agg_file": "spei03_nclimgrid_gamma_05deg.nc",
+      "agg_sha256": "db325d30b620843f60c74d12e4c3cfcc3725f9f671a45a33db144bb4a06e7416"
+    },
+    "SPEI-6": {
+      "source_file": "nclimgrid-spei-gamma-06.nc",
+      "source_sha256": "12aca0ba0788edf26811dcd05bc3e33b7d03caa9f804b4a5b57ecac3592ce4a2",
+      "source_bytes": 2307806793,
+      "variable": "spei_06",
+      "dims": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "global_attrs": {
+        "date_created": "2026-10-04  16:52:39",
+        "date_modified": "2026-10-04  16:52:39",
+        "title": "SPEI/Gamma 6-month values computed by NIDIS/NCEI/NOAA, for internal use only",
+        "source": "NIDIS/NCEI/NOAA",
+        "summary": "SPEI/Gamma 6-month values computed by NIDIS/NCEI/NOAA, for internal use only",
+        "institution": "National Centers for Environmental Information (NCEI), NESDIS, NOAA, U.S. Department of Commerce",
+        "ncei_template_version": "NCEI_NetCDF_Grid_Template_v2.0",
+        "standard_name_vocabulary": "Standard Name Table v35",
+        "naming_authority": "gov.noaa.ncei",
+        "Conventions": "CF-1.6, ACDD-1.3",
+        "geospatial_lat_min": "24.5625",
+        "geospatial_lat_max": "49.354168",
+        "geospatial_lon_min": "-124.6875",
+        "geospatial_lon_max": "-67.020836",
+        "geospatial_lat_units": "degrees_north",
+        "geospatial_lon_units": "degrees_east"
+      },
+      "variable_attrs": {
+        "calibration_start_year": "1895",
+        "calibration_end_year": "2014",
+        "_FillValue": "-999.9",
+        "missing_value": "-999.9",
+        "valid_min": "-3.09",
+        "valid_max": "3.09",
+        "cell_methods": "time: standard_deviation (SPEI at 6 month scale)",
+        "long_name": "SPEI/Gamma 6-month",
+        "standard_name": "SPEI/Gamma 6-month"
+      },
+      "file_months": [
+        "1895-01",
+        "2026-09"
+      ],
+      "domain_endpoint_last_valid_month": "2026-09",
+      "valid_cells_first_month": 3575,
+      "valid_cells_2020_01": 3575,
+      "agg_file": "spei06_nclimgrid_gamma_05deg.nc",
+      "agg_sha256": "809fe1fb89c9cbafafd61292681a9ddd3d227e443289bf42d8a24f33868f14fd"
+    }
+  },
+  "speibase_grid": {
+    "grid_shape": [
+      50,
+      118
+    ],
+    "valid_cells_2020_01": 4399,
+    "total_cells": 5900
+  }
+}

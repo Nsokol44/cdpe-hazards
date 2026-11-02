@@ -1,0 +1,35 @@
+{
+ "tornado_all": {
+  "summary_block_identical": true,
+  "n_config_rows": 36,
+  "config_rows_identical": true
+ },
+ "hail_ge1in": {
+  "summary_block_identical": true,
+  "n_config_rows": 36,
+  "config_rows_identical": true
+ },
+ "heatwave_days_per_cell": {
+  "summary_block_identical": true,
+  "n_config_rows": 36,
+  "config_rows_identical": true
+ },
+ "tornado_ef1plus": {
+  "summary_block_identical": true,
+  "n_config_rows": 36,
+  "config_rows_identical": true
+ },
+ "tornado_ef2plus": {
+  "summary_block_identical": true,
+  "n_config_rows": 36,
+  "config_rows_identical": true
+ },
+ "hail_all": {
+  "summary_block_identical": true,
+  "n_config_rows": 36,
+  "config_rows_identical": true
+ },
+ "split_era_identical": true,
+ "max_abs_baseline_deviation": 0.0,
+ "all_retained_identical": true
+}

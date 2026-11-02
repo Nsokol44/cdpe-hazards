@@ -1,0 +1,149 @@
+{
+ "new_nclimgrid_gamma|SPEI-1": {
+  "grid": "new_nclimgrid_gamma",
+  "window": [
+   "1980-01",
+   "2023-12"
+  ],
+  "n_months": 528,
+  "n_cdpe": 3,
+  "finite_share_min": 0.6059322033898306,
+  "finite_share_median": 0.6059322033898306,
+  "finite_share_max": 0.6059322033898306,
+  "months_dry_gate_fail": 351,
+  "months_wet_gate_fail": 292,
+  "months_either_gate_fail": 460,
+  "months_gate_pass": 68,
+  "of_gate_pass_majority_fail": 65,
+  "of_gate_pass_dry_majority_fail": 57,
+  "of_gate_pass_wet_majority_fail": 48,
+  "tail_mass_le_-1.5_pct": 3.926255562619199,
+  "tail_mass_ge_+1.5_pct": 8.111676202585294
+ },
+ "new_nclimgrid_gamma|SPEI-3": {
+  "grid": "new_nclimgrid_gamma",
+  "window": [
+   "1980-01",
+   "2023-12"
+  ],
+  "n_months": 528,
+  "n_cdpe": 8,
+  "finite_share_min": 0.6059322033898306,
+  "finite_share_median": 0.6059322033898306,
+  "finite_share_max": 0.6059322033898306,
+  "months_dry_gate_fail": 332,
+  "months_wet_gate_fail": 280,
+  "months_either_gate_fail": 446,
+  "months_gate_pass": 82,
+  "of_gate_pass_majority_fail": 74,
+  "of_gate_pass_dry_majority_fail": 56,
+  "of_gate_pass_wet_majority_fail": 57,
+  "tail_mass_le_-1.5_pct": 6.3455710955710956,
+  "tail_mass_ge_+1.5_pct": 8.07199618563255
+ },
+ "new_nclimgrid_gamma|SPEI-6": {
+  "grid": "new_nclimgrid_gamma",
+  "window": [
+   "1980-01",
+   "2023-12"
+  ],
+  "n_months": 528,
+  "n_cdpe": 8,
+  "finite_share_min": 0.6059322033898306,
+  "finite_share_median": 0.6059322033898306,
+  "finite_share_max": 0.6059322033898306,
+  "months_dry_gate_fail": 316,
+  "months_wet_gate_fail": 278,
+  "months_either_gate_fail": 433,
+  "months_gate_pass": 95,
+  "of_gate_pass_majority_fail": 87,
+  "of_gate_pass_dry_majority_fail": 61,
+  "of_gate_pass_wet_majority_fail": 64,
+  "tail_mass_le_-1.5_pct": 7.251801229073957,
+  "tail_mass_ge_+1.5_pct": 8.066963339690613
+ },
+ "old_speibase_v210|SPEI-1": {
+  "grid": "old_speibase_v210",
+  "window": [
+   "1980-01",
+   "2023-12"
+  ],
+  "n_months": 528,
+  "n_cdpe": 46,
+  "finite_share_min": 0.7452542372881356,
+  "finite_share_median": 0.745593220338983,
+  "finite_share_max": 0.745593220338983,
+  "months_dry_gate_fail": 202,
+  "months_wet_gate_fail": 134,
+  "months_either_gate_fail": 296,
+  "months_gate_pass": 232,
+  "of_gate_pass_majority_fail": 186,
+  "of_gate_pass_dry_majority_fail": 139,
+  "of_gate_pass_wet_majority_fail": 130,
+  "tail_mass_le_-1.5_pct": 5.696296541863298,
+  "tail_mass_ge_+1.5_pct": 7.919258335353281
+ },
+ "old_speibase_v210|SPEI-3": {
+  "grid": "old_speibase_v210",
+  "window": [
+   "1980-01",
+   "2023-12"
+  ],
+  "n_months": 528,
+  "n_cdpe": 48,
+  "finite_share_min": 0.745593220338983,
+  "finite_share_median": 0.745593220338983,
+  "finite_share_max": 0.745593220338983,
+  "months_dry_gate_fail": 225,
+  "months_wet_gate_fail": 144,
+  "months_either_gate_fail": 315,
+  "months_gate_pass": 213,
+  "of_gate_pass_majority_fail": 165,
+  "of_gate_pass_dry_majority_fail": 121,
+  "of_gate_pass_wet_majority_fail": 104,
+  "tail_mass_le_-1.5_pct": 6.083769038417822,
+  "tail_mass_ge_+1.5_pct": 8.591742613679418
+ },
+ "old_speibase_v210|SPEI-6": {
+  "grid": "old_speibase_v210",
+  "window": [
+   "1980-01",
+   "2023-12"
+  ],
+  "n_months": 528,
+  "n_cdpe": 51,
+  "finite_share_min": 0.745593220338983,
+  "finite_share_median": 0.745593220338983,
+  "finite_share_max": 0.745593220338983,
+  "months_dry_gate_fail": 210,
+  "months_wet_gate_fail": 128,
+  "months_either_gate_fail": 299,
+  "months_gate_pass": 229,
+  "of_gate_pass_majority_fail": 178,
+  "of_gate_pass_dry_majority_fail": 125,
+  "of_gate_pass_wet_majority_fail": 112,
+  "tail_mass_le_-1.5_pct": 5.9580517610751755,
+  "tail_mass_ge_+1.5_pct": 9.390477863426261
+ },
+ "new_nclimgrid_gamma_ext|SPEI-1|2024-01..2026-07": {
+  "grid": "new_nclimgrid_gamma_ext",
+  "window": [
+   "2024-01",
+   "2026-07"
+  ],
+  "n_months": 31,
+  "n_cdpe": 0,
+  "finite_share_min": 0.6059322033898306,
+  "finite_share_median": 0.6059322033898306,
+  "finite_share_max": 0.6059322033898306,
+  "months_dry_gate_fail": 19,
+  "months_wet_gate_fail": 18,
+  "months_either_gate_fail": 26,
+  "months_gate_pass": 5,
+  "of_gate_pass_majority_fail": 5,
+  "of_gate_pass_dry_majority_fail": 4,
+  "of_gate_pass_wet_majority_fail": 5,
+  "tail_mass_le_-1.5_pct": 8.911346717798331,
+  "tail_mass_ge_+1.5_pct": 5.242499436047823
+ }
+}

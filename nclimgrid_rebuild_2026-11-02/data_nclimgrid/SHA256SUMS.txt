@@ -1,0 +1,4 @@
+9d3583ae77485a64a1644f6ce068740597e5395a0ab148b82ee1b22b018091a5  nclimgrid-spei-gamma-01.nc
+66b36a5ab1ea5d5207b4c9a688925157195449934469888054230a78a8ee32c3  nclimgrid-spei-gamma-03.nc
+12aca0ba0788edf26811dcd05bc3e33b7d03caa9f804b4a5b57ecac3592ce4a2  nclimgrid-spei-gamma-06.nc
+eead5a47da3e3f7984f30dbc562aeab138bc3f10ce46496b9e56f15ac7afd142  nclimgrid-spei-pearson-01.nc
