@@ -190,7 +190,10 @@ check("number trace: 0 unmatched; delta is the directed S3.1 move",
       not unmatched
       and _removed == {"1.000": 1, "66": 1, "22": 1, "0.063": 1,
                        "0.054": 1}
-      and _added == {"1": 1},
+      and _added == {"6": 2},  # Map-figure insertion 2026-11-01: the
+      # Figure 6 caption + in-text reference join ("6" x2); the earlier
+      # "S1" gain ("1") now nets to zero against the Figure 1 -> 2
+      # renumbering inside the same traced sections
       f"NH checked {len(found)}, AAS checked {len(aas_found)}, "
       f"unmatched {unmatched}, removed {dict(_removed)}, "
       f"added {dict(_added)}")
@@ -209,7 +212,13 @@ n_md = md_numbers(PKG / "manuscript_nh.md")
 check("numeric tokens: NH md vs AAS md (mod directed S3.1 move)",
       (a_md - n_md) == Counter({"1.000": 1, "66": 1, "22": 1,
                                 "0.063": 1, "0.054": 1})
-      and (n_md - a_md) == Counter({"1": 1}),
+      and (n_md - a_md) == Counter({"1": 1}) + Counter({
+          # Map-figure insertion 2026-11-01: the new Figure 1 caption
+          # (1980, 2023, 25, 1.00, 46 x2, 8.7, 528), its in-text pointer
+          # (1), and the Figure 6 renumbering (6 x2); the caption's own
+          # "Figure 1" token replaces the renumbered heatmap caption's.
+          "1980": 1, "2023": 1, "1": 1, "6": 2, "25": 1, "1.00": 1,
+          "46": 2, "8.7": 1, "528": 1}),
       f"only-AAS {dict((a_md - n_md))}, only-NH {dict((n_md - a_md))}")
 
 aas_text, _ = docx_text(SRC_PKG / "manuscript" / "manuscript_aas_formatted.docx")
@@ -231,6 +240,11 @@ EXPLAINED = Counter({"10.1002": 1, "9780470725184": 1, "56": 1, "8": 1,
 # the "1" of "SPI-1" leaves with the Adams note.
 EXPLAINED_NH = EXPLAINED + Counter({"2026": 6, "4": 1, "0490": 2,
                                     "00": 1})
+# Map-figure insertion 2026-11-01 (DOCX tokenisation): the new Figure 1
+# caption and pointer plus the Figure 6 renumbering, as itemised for the
+# md comparison above (the DOCX extractor nets one fewer "1").
+EXPLAINED_NH += Counter({"1980": 1, "2023": 1, "1": 1, "6": 2, "25": 1,
+                         "1.00": 1, "46": 2, "8.7": 1, "528": 1})
 EXPLAINED_AAS = Counter({"1.000": 1, "66": 1, "22": 1, "0.063": 1,
                          "0.054": 1, "0019": 1, "1981": 1, "2010": 1})
 diff_aas = a_doc - n_doc
@@ -307,16 +321,16 @@ for name in ("manuscript_nh.docx", "cover_letter_nh.docx",
         fig_md5 = {hashlib.md5((PKG / "figures" / f).read_bytes()).hexdigest()
                    for f in ("fig_s1_count_heatmaps.png", "fig_s2_variance.png",
                              "fig_h1_forest.png", "fig_h2_envelope.png",
-                             "fig_h3_series.png")}
+                             "fig_h3_series.png", "fig_map_geography.png")}
         emb_md5 = {hashlib.md5(z.read(n)).hexdigest() for n in media}
-        check("manuscript: 5 figures embedded, MD5-matched to sources",
-              len(media) == 5 and emb_md5 == fig_md5,
+        check("manuscript: 6 figures embedded, MD5-matched to sources",
+              len(media) == 6 and emb_md5 == fig_md5,
               f"media {len(media)}")
         cap_re = re.compile(r"^(Table|Figure) \d+\.")
         keeps = sum(1 for p in nh_doc.paragraphs
                     if cap_re.match(p.text.strip())
                     and p.paragraph_format.keep_with_next)
-        check("manuscript: 8 captions carry keep_with_next", keeps == 8,
+        check("manuscript: 9 captions carry keep_with_next", keeps == 9,
               f"found {keeps}")
 
 print()

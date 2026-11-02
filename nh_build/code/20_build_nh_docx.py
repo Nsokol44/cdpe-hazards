@@ -23,7 +23,7 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Pt, RGBColor
+from docx.shared import Inches,  Pt, RGBColor
 
 PKG = Path(__file__).resolve().parents[1]
 MS = PKG / "manuscript_nh.md"
@@ -402,7 +402,7 @@ def main() -> int:
             if fig:
                 flush()
                 img = FIGDIR / f"{fig.group(1)}.png"
-                doc.add_picture(str(img))
+                doc.add_picture(str(img), width=Inches(6.0))
                 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
                 if fig.group(2):
                     add_runs(doc.add_paragraph(), fig.group(2), bib)
@@ -463,7 +463,6 @@ def main() -> int:
     # paragraph after the table gains space before it so the last row
     # no longer touches the following text. Widths sum to the 6.0 in
     # text measure (Letter, 1.25 in side margins).
-    from docx.shared import Inches
     from docx.text.paragraph import Paragraph as _Paragraph
     _t2 = doc.tables[1]
     _widths = [Inches(2.80), Inches(1.25), Inches(0.95), Inches(1.00)]
@@ -550,7 +549,7 @@ def main() -> int:
             n_captions += 1
         if par._p.xpath(".//w:drawing"):
             par.paragraph_format.keep_with_next = True
-    assert n_captions == 8, f"expected 8 captions, found {n_captions}"
+    assert n_captions == 9, f"expected 9 captions, found {n_captions}"
 
     cp = doc.core_properties
     cp.author = "Nicholas J. Sokol"
