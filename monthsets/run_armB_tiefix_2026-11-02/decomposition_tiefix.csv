@@ -1,0 +1,131 @@
+arm,version,scale,factor,order,share
+A,archived,raw,threshold,1,0.758899018376688
+A,archived,raw,radius_deg,1,0.12701045977892694
+A,archived,raw,threshold x radius_deg,2,0.06114894522194231
+A,archived,raw,index,1,0.03096340751026596
+A,archived,raw,index x threshold,2,0.020986935804146012
+A,archived,raw,higher_order,3,0.0006660051246115406
+A,archived,raw,index x radius_deg,2,0.0003252281834191517
+A,archived,log1p,threshold,1,0.8540838088120618
+A,archived,log1p,radius_deg,1,0.0759536198443391
+A,archived,log1p,index,1,0.03541822004165081
+A,archived,log1p,index x threshold,2,0.015289747898175499
+A,archived,log1p,threshold x radius_deg,2,0.007124752404133489
+A,archived,log1p,higher_order,3,0.0061173459353700416
+A,archived,log1p,index x radius_deg,2,0.0060125050642692995
+B,old,raw,threshold,1,0.3186516028271475
+B,old,raw,dist,1,0.18753893012115805
+B,old,raw,dist x threshold,2,0.16718599081874946
+B,old,raw,higher_order,3,0.07205043416028156
+B,old,raw,radius_deg,1,0.06593802552291755
+B,old,raw,threshold x radius_deg,2,0.058155879343127936
+B,old,raw,dist x radius_deg,2,0.030959325649621422
+B,old,raw,water_balance x threshold,2,0.014880418947398832
+B,old,raw,dist x water_balance,2,0.012569171411510507
+B,old,raw,dataset x threshold,2,0.011943867717725543
+B,old,raw,dataset,1,0.011289758110090226
+B,old,raw,timescale,1,0.01026414259715291
+B,old,raw,timescale x threshold,2,0.010228836865179836
+B,old,raw,water_balance,1,0.009837708255464626
+B,old,raw,timescale x dist,2,0.006927033048238773
+B,old,raw,water_balance x radius_deg,2,0.003976292927506606
+B,old,raw,dataset x radius_deg,2,0.002488020533561147
+B,old,raw,timescale x radius_deg,2,0.001708366701030431
+B,old,raw,dataset x dist,2,0.0015220753402913623
+B,old,raw,dataset x timescale,2,0.0004682636768806418
+B,old,raw,timescale x water_balance,2,0.00040282439022975777
+B,old,raw,timescale x cal_period,2,0.0003267639769588205
+B,old,raw,cal_period x threshold,2,0.0003228415983577704
+B,old,raw,cal_period x water_balance,2,0.00010946549982490325
+B,old,raw,dataset x water_balance,2,0.0001075280956205904
+B,old,raw,cal_period x radius_deg,2,6.681882223387448e-05
+B,old,raw,cal_period,1,4.5461968075432064e-05
+B,old,raw,dist x cal_period,2,3.3785648094132264e-05
+B,old,raw,dataset x cal_period,2,3.6542556978160455e-07
+B,old,log1p,threshold,1,0.44535662235809603
+B,old,log1p,dist,1,0.3448164294195493
+B,old,log1p,higher_order,3,0.05228438177042283
+B,old,log1p,dist x threshold,2,0.051976005529884406
+B,old,log1p,radius_deg,1,0.04574935943055342
+B,old,log1p,dataset,1,0.012769947260743297
+B,old,log1p,threshold x radius_deg,2,0.010636081196994489
+B,old,log1p,dataset x threshold,2,0.008247806553678072
+B,old,log1p,timescale,1,0.006430861775468509
+B,old,log1p,timescale x threshold,2,0.00577154772814048
+B,old,log1p,dist x radius_deg,2,0.003921196539292786
+B,old,log1p,dist x water_balance,2,0.0021425196862769184
+B,old,log1p,timescale x dist,2,0.001812913442406916
+B,old,log1p,cal_period x threshold,2,0.001653325167790154
+B,old,log1p,dist x cal_period,2,0.0011535677551327956
+B,old,log1p,water_balance x threshold,2,0.0010427868170543309
+B,old,log1p,timescale x water_balance,2,0.0007633558531756776
+B,old,log1p,dataset x dist,2,0.0006735951966201359
+B,old,log1p,timescale x cal_period,2,0.000667309501747137
+B,old,log1p,dataset x radius_deg,2,0.0006317019405926994
+B,old,log1p,dataset x timescale,2,0.00043913482478696256
+B,old,log1p,water_balance x radius_deg,2,0.00038661773565019236
+B,old,log1p,cal_period x water_balance,2,0.0003568012546367659
+B,old,log1p,timescale x radius_deg,2,0.0002667187263440604
+B,old,log1p,cal_period x radius_deg,2,2.2198248582579183e-05
+B,old,log1p,cal_period,1,1.3604697818208472e-05
+B,old,log1p,dataset x water_balance,2,9.532311624956921e-06
+B,old,log1p,dataset x cal_period,2,3.2926421429949056e-06
+B,old,log1p,water_balance,1,7.846347928758691e-07
+B,tiefix,raw,threshold,1,0.6406787898647551
+B,tiefix,raw,radius_deg,1,0.12621619712259446
+B,tiefix,raw,threshold x radius_deg,2,0.09693361693789393
+B,tiefix,raw,higher_order,3,0.028486571503603786
+B,tiefix,raw,dataset,1,0.022961666825564754
+B,tiefix,raw,dataset x threshold,2,0.018863587594904363
+B,tiefix,raw,dist x threshold,2,0.01220397247662841
+B,tiefix,raw,water_balance x threshold,2,0.010932034866206863
+B,tiefix,raw,timescale,1,0.00817244601548944
+B,tiefix,raw,timescale x threshold,2,0.007391398780771663
+B,tiefix,raw,water_balance,1,0.006031025302152237
+B,tiefix,raw,dist,1,0.00468312871780509
+B,tiefix,raw,dataset x radius_deg,2,0.0032889179168534566
+B,tiefix,raw,dist x water_balance,2,0.002997202379395267
+B,tiefix,raw,water_balance x radius_deg,2,0.0027443586023084277
+B,tiefix,raw,dist x radius_deg,2,0.0015733561545262231
+B,tiefix,raw,timescale x radius_deg,2,0.0011855214908176315
+B,tiefix,raw,dataset x dist,2,0.001133452297396637
+B,tiefix,raw,timescale x cal_period,2,0.0007427802789163832
+B,tiefix,raw,dataset x water_balance,2,0.000716223011590098
+B,tiefix,raw,timescale x water_balance,2,0.0007161950113785285
+B,tiefix,raw,cal_period,1,0.0006429781915050885
+B,tiefix,raw,timescale x dist,2,0.00028116879110308066
+B,tiefix,raw,dist x cal_period,2,0.00011564460711315037
+B,tiefix,raw,cal_period x threshold,2,0.00010750027891048841
+B,tiefix,raw,cal_period x water_balance,2,7.634351016454037e-05
+B,tiefix,raw,dataset x timescale,2,6.015378783930797e-05
+B,tiefix,raw,cal_period x radius_deg,2,4.3323794009730854e-05
+B,tiefix,raw,dataset x cal_period,2,2.0443887801892963e-05
+B,tiefix,log1p,threshold,1,0.7863112681953338
+B,tiefix,log1p,radius_deg,1,0.12036000269295838
+B,tiefix,log1p,higher_order,3,0.03494342719148238
+B,tiefix,log1p,dataset,1,0.01771578274502941
+B,tiefix,log1p,timescale,1,0.008196652128962477
+B,tiefix,log1p,threshold x radius_deg,2,0.006108725176253882
+B,tiefix,log1p,dist x threshold,2,0.005029510109215596
+B,tiefix,log1p,timescale x threshold,2,0.004429408336762641
+B,tiefix,log1p,cal_period,1,0.003790731790348661
+B,tiefix,log1p,water_balance x threshold,2,0.003468381238450724
+B,tiefix,log1p,dist x radius_deg,2,0.0017233403131221015
+B,tiefix,log1p,cal_period x threshold,2,0.0012984826012183426
+B,tiefix,log1p,dataset x dist,2,0.0011926745838957587
+B,tiefix,log1p,timescale x cal_period,2,0.0009630144149605684
+B,tiefix,log1p,dataset x threshold,2,0.0007323547165629662
+B,tiefix,log1p,timescale x dist,2,0.0006318724653245425
+B,tiefix,log1p,water_balance x radius_deg,2,0.0005010734651518245
+B,tiefix,log1p,timescale x water_balance,2,0.0004114726003819243
+B,tiefix,log1p,timescale x radius_deg,2,0.0003365618182835095
+B,tiefix,log1p,dataset x water_balance,2,0.0003322412212270268
+B,tiefix,log1p,dist,1,0.0003235504845557804
+B,tiefix,log1p,dataset x timescale,2,0.0003174032075073333
+B,tiefix,log1p,cal_period x radius_deg,2,0.00026277204938866816
+B,tiefix,log1p,dataset x radius_deg,2,0.00025729353323469817
+B,tiefix,log1p,dist x water_balance,2,0.00019147450085194826
+B,tiefix,log1p,cal_period x water_balance,2,0.00011157408210860178
+B,tiefix,log1p,water_balance,1,4.27373933074154e-05
+B,tiefix,log1p,dataset x cal_period,2,1.523850660348474e-05
+B,tiefix,log1p,dist x cal_period,2,9.784375155693498e-07

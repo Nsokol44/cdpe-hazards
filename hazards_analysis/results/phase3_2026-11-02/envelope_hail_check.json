@@ -1,0 +1,5 @@
+{
+  "n_included": 23,
+  "n_excluding_1": 7,
+  "inclusion_rule": "included_in_envelope == True in rate_ratios_by_config.csv, i.e. >= 10 CDPE months in the 1980-2023 window (frozen Step 06 envelope rule; 23 of 36 Arm A configurations qualify)"
+}

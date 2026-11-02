@@ -1,0 +1,16 @@
+arm,arm_label,hazard,hazard_label,rr,ci_lo,ci_hi,n_exposed,n_months,bootstrap_finite
+a_same52,"Aligned 52, same-month",tornado_all,Tornadoes,1.1611851794247439,0.7798808229072492,1.5266620564956597,52,528,2000
+a_same52,"Aligned 52, same-month",hail_ge1in,Hail >= 1 in,1.0106759531781726,0.6990236485746592,1.3727256508362877,52,528,2000
+a_same52,"Aligned 52, same-month",heatwave_days_per_cell,Heat-wave days per cell,0.8776926282662953,0.5038694295447789,1.4156461748789262,52,528,2000
+b_same15,"US-anchored 15, same-month",tornado_all,Tornadoes,0.9893276350450547,0.572743041263472,1.5395397168099632,15,528,2000
+b_same15,"US-anchored 15, same-month",hail_ge1in,Hail >= 1 in,1.0004746522568848,0.6715755074183106,1.317600232594163,15,528,2000
+b_same15,"US-anchored 15, same-month",heatwave_days_per_cell,Heat-wave days per cell,0.9307633762216899,0.4638739145032842,1.760180852209451,15,528,2000
+c_lag52,"Aligned 52, lagged (t+1)",tornado_all,Tornadoes,1.1243396787929485,0.8368426412567628,1.4427442684822043,52,527,2000
+c_lag52,"Aligned 52, lagged (t+1)",hail_ge1in,Hail >= 1 in,1.1019022831719265,0.7645087557035486,1.486595202884549,52,527,2000
+c_lag52,"Aligned 52, lagged (t+1)",heatwave_days_per_cell,Heat-wave days per cell,1.1506433601499413,0.5622497607005261,2.17106745238806,52,527,2000
+d_lag15,"US-anchored 15, lagged (t+1)",tornado_all,Tornadoes,0.8710232102431957,0.6754511036795309,1.0944616450411062,15,527,2000
+d_lag15,"US-anchored 15, lagged (t+1)",hail_ge1in,Hail >= 1 in,0.937896422621865,0.6814271450679633,1.2099317291899125,15,527,2000
+d_lag15,"US-anchored 15, lagged (t+1)",heatwave_days_per_cell,Heat-wave days per cell,0.6020638230679186,0.315054543703685,1.039091810622351,15,527,2000
+e_armA46,"Arm A 46, same-month (continuity)",tornado_all,Tornadoes,1.1267634285779056,0.8214662279358184,1.4911956466039817,46,528,2000
+e_armA46,"Arm A 46, same-month (continuity)",hail_ge1in,Hail >= 1 in,1.1045322432605502,0.7917933146402449,1.502570638936012,46,528,2000
+e_armA46,"Arm A 46, same-month (continuity)",heatwave_days_per_cell,Heat-wave days per cell,0.8998829640971758,0.5429465073574701,1.3638645755319183,46,528,2000

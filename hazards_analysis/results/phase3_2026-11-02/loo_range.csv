@@ -1,0 +1,13 @@
+arm,arm_label,hazard,hazard_label,loo_min,loo_max,n_left_out
+a_same52,"Aligned 52, same-month",tornado_all,Tornadoes,0.9941360948442047,1.1952315747671545,52
+a_same52,"Aligned 52, same-month",hail_ge1in,Hail >= 1 in,0.9209032923382006,1.05465942490193,52
+a_same52,"Aligned 52, same-month",heatwave_days_per_cell,Heat-wave days per cell,0.7617339010982195,0.9178968091890037,52
+b_same15,"US-anchored 15, same-month",tornado_all,Tornadoes,0.8443694858903068,1.0578936421218526,15
+b_same15,"US-anchored 15, same-month",hail_ge1in,Hail >= 1 in,0.9188893830037697,1.1090775304508087,15
+b_same15,"US-anchored 15, same-month",heatwave_days_per_cell,Heat-wave days per cell,0.7353153041666467,1.0356464911956722,15
+c_lag52,"Aligned 52, lagged (t+1)",tornado_all,Tornadoes,0.9794795286472419,1.1541659787036198,52
+c_lag52,"Aligned 52, lagged (t+1)",hail_ge1in,Hail >= 1 in,1.0287731998834295,1.1434839529272842,52
+c_lag52,"Aligned 52, lagged (t+1)",heatwave_days_per_cell,Heat-wave days per cell,0.8585791642654991,1.1915698214678339,52
+d_lag15,"US-anchored 15, lagged (t+1)",tornado_all,Tornadoes,0.8176435011041953,0.920183887603442,15
+d_lag15,"US-anchored 15, lagged (t+1)",hail_ge1in,Hail >= 1 in,0.8969883204718899,1.0337235695775657,15
+d_lag15,"US-anchored 15, lagged (t+1)",heatwave_days_per_cell,Heat-wave days per cell,0.5052802604654897,0.6676537044124154,15

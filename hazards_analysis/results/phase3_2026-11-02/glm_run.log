@@ -1,0 +1,25 @@
+a_same52 tornado_all negbin 44.89
+a_same52 hail_ge1in negbin 100.74
+/usr/local/lib/python3.12/dist-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+a_same52 heatwave_cell_days negbin 2043.43
+b_same15 tornado_all negbin 46.04
+b_same15 hail_ge1in negbin 100.78
+/usr/local/lib/python3.12/dist-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+b_same15 heatwave_cell_days negbin 2046.49
+c_lag52 tornado_all negbin 45.39
+c_lag52 hail_ge1in negbin 99.75
+/usr/local/lib/python3.12/dist-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+c_lag52 heatwave_cell_days negbin 2048.19
+d_lag15 tornado_all negbin 45.81
+d_lag15 hail_ge1in negbin 100.83
+/usr/local/lib/python3.12/dist-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+d_lag15 heatwave_cell_days negbin 2029.29
+/usr/local/lib/python3.12/dist-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+/usr/local/lib/python3.12/dist-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+GLM done

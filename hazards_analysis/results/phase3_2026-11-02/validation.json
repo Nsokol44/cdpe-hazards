@@ -1,0 +1,34 @@
+{
+  "aligned": {
+    "n_companion": 52,
+    "n_us_anchored": 15,
+    "n_armA": 46,
+    "intersection_comp_armA": 32,
+    "companion_max_month": "2022-04",
+    "all_companion_tplus1_in_window": true
+  },
+  "series": {
+    "rows": 528,
+    "tornado_all": 54607,
+    "hail_ge1in": 229650,
+    "hail_all": 379430,
+    "heatwave_cell_days_total": 475232.9948959999,
+    "heatwave_land_cells": 3608
+  },
+  "oni": {
+    "oni_monthly_sha256": "314e28d6eb246ab25521cf2aa59ebbf695dbc57c135d849cffeae37a514ef491",
+    "corr_vs_seg_v5_fallback": 0.9964676363148864,
+    "max_abs_diff_vs_seg_v5_fallback": 0.29000000000000015
+  },
+  "design": {
+    "n_same52": 52,
+    "n_same15": 15,
+    "n_armA46": 46,
+    "n_lag52_outcome_months": 52,
+    "n_lag15_outcome_months": 15,
+    "lag_frame_months": 527,
+    "era_early_months": 192,
+    "era_late_months": 336,
+    "aligned_in_early_era": 24
+  }
+}

@@ -1,0 +1,4 @@
+hazard,hazard_label,spearman_rho,p_value,n_years
+tornado_all,Tornadoes,-0.13616858585569855,0.3781269965438695,44
+hail_ge1in,Hail >= 1 in,-0.2036025327906946,0.18497197140698532,44
+heatwave_days_per_cell,Heat-wave days per cell,0.017346641782889503,0.9110133857689927,44

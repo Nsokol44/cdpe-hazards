@@ -1,0 +1,213 @@
+{
+  "phase": "Phase 2 tie-fix rerun (2026-11-02)",
+  "driver": "scripts/run_armB_tiefix.py",
+  "detector_tiefix": "cdpe_sens/detector_tiefix.py",
+  "frozen_detector": "cdpe_sens/author_detector.py (unmodified)",
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "xarray": "2026.9.0",
+  "config": "config/example_config.json",
+  "config_sha256": "19ad4cc0223a88bbc57152c5588e28d8766a87c7f303a8d4c1dfca5550441860",
+  "base_seed": 20261102,
+  "seed_rule": "per (pole, month): default_rng(int.from_bytes(sha256('cdpe-tiefix-v1|BASE_SEED=<seed>|scenario=<key>|month=<t>|pole=<dry|wet>')[:8], 'little')); scenario key = (dataset, timescale, dist, cal_period, water_balance, threshold, min_area_frac, min_cluster_cells, radius_deg) joined with '/'",
+  "seed_sensitivity_seeds": [
+    20261102,
+    20261103,
+    20261104,
+    20261105,
+    20261106
+  ],
+  "land_mask": {
+    "applied": true,
+    "application": "Water cells set to NaN in every computed index field before detection; cdpe_sens.author_detector itself unmodified. Reproduces Arm A semantics (SPEIbase ocean cells are fill/NaN).",
+    "source_product": "SPEIbase v2.10 spei01.nc (land-only product; ocean cells are fill in every month)",
+    "source_file": "data/spei01.nc",
+    "source_file_sha256": "fff779babfc2dd50ccc84afce59ba66ec8d5f23d1263512b0fb030172ece3bc3",
+    "speibase_release": "v2.10 (CRU TS 4.08 based, SPEI R package 1.8.1, Jan 1901 - Dec 2023), Digital.CSIC record 10261/364137, DOI 10.20350/digitalCSIC/16497. NOTE: v2.11 (CRU TS 4.09, through Dec 2024) is listed at https://spei.csic.es/database.html but its file endpoints could not be reached from this network on 2026-10-04; v2.10 was obtained instead and the substitution is disclosed in data/DATA_MANIFEST.md. The 1980-2024 baseline check therefore runs on 1980-2023 with this release.",
+    "clip": {
+      "lat": [
+        24.81,
+        50.0
+      ],
+      "lon": [
+        -125.62,
+        -66.58
+      ]
+    },
+    "window": [
+      "1980-01-01",
+      "2023-12-31"
+    ],
+    "land_rule": "SPEIbase cell is land iff finite in >= 1 month of the window (audit AUDIT_FINDINGS.md Item 2)",
+    "speibase_grid_land_cells": 4399,
+    "speibase_grid_total_cells": 5900,
+    "speibase_cells_finite_all_months": 4394,
+    "speibase_cells_finite_some_months": 5,
+    "transfer_to_arm_b_grid": "nearest SPEIbase cell per Arm B cell (grids offset 0.25 deg; numpy argmin first-occurrence ties, as in the audit)",
+    "arm_b_grid_land_cells": 4443,
+    "arm_b_grid_total_cells": 6069,
+    "arm_b_grid_land_fraction": 0.7320810677212062,
+    "scope_note": "Mask is global land inside the bounding box (Canadian/Mexican land cells are land), matching Arm A; it is not a US-only mask."
+  },
+  "step1_reproduction": {
+    "matched": 720,
+    "of": 720,
+    "exact": true
+  },
+  "baseline_bit_identical_rerun": true,
+  "vd_reproduction_checks": [
+    {
+      "arm": "A",
+      "max_abs_share_diff": 5.898059818321144e-17,
+      "n_terms": 7
+    },
+    {
+      "arm": "B_masked",
+      "max_abs_share_diff": 9.0408908658135e-17,
+      "n_terms": 29
+    }
+  ],
+  "log_scale": "log1p: log(1 + n_cdpe_months)",
+  "n_scenarios": 720,
+  "elapsed_seconds": 3.2,
+  "input_files": [
+    {
+      "dataset": "NARR",
+      "role": "precip",
+      "path": "data/narr_prcp_monthly_totals.nc",
+      "bytes": 163200837,
+      "sha256": "cdf89caa45bd236d36cd9912dd41b626418fc8910d2031274d0ab4c28b5e25f4"
+    },
+    {
+      "dataset": "NARR",
+      "role": "tmean",
+      "path": "data/narr_t2m_monthly.nc",
+      "bytes": 163200703,
+      "sha256": "fee5e6cb3ea4688e9ad64677f012fe81e5a17f4a77f8c353c4e5067a340b3b5c"
+    },
+    {
+      "dataset": "ERA5",
+      "role": "precip",
+      "path": "data/era5_tp_monthly.nc",
+      "bytes": 6814073,
+      "sha256": "71910b6ac9589ca1a1fa7f15b41a5fdbcee2ee75911054437010b4c85fa8a78b"
+    },
+    {
+      "dataset": "ERA5",
+      "role": "tmean",
+      "path": "data/era5_t2m_monthly.nc",
+      "bytes": 6814038,
+      "sha256": "5201d15d286b78cdc69e7165dcfbd373ed5df3e7f8c5e3870dbd4bb590a49e53"
+    },
+    {
+      "dataset": "SPEIbase (land-mask source)",
+      "role": "spei01",
+      "path": "data/spei01.nc",
+      "bytes": 379439150,
+      "sha256": "fff779babfc2dd50ccc84afce59ba66ec8d5f23d1263512b0fb030172ece3bc3"
+    }
+  ],
+  "archived_inputs": [
+    {
+      "path": "results/run_armB_masked_2026-10-05/scenarios.csv",
+      "sha256": "724e63df0529e676fd358f07358ff906f4d8e8d4b7448360043d157d4402e1d4"
+    },
+    {
+      "path": "results/run_armA_2026-10-05/scenarios.csv",
+      "sha256": "57cf64617369df4563a385092b99565690df10452e4086cd7f323f7371afe3e0"
+    }
+  ],
+  "field_cache_sha256": {
+    "NARR_ts1_loglogistic_full_spei": "f1d745a7bd6053b3a2ee58c2fa25ce532df821c69eeefe85b42fd0f4ed8c4847",
+    "NARR_ts1_loglogistic_full_spi": "7b92404bb999013924871ee1c40d078f1641debbd3562c870da92c7c7d24c756",
+    "NARR_ts1_loglogistic_1981-2010_spei": "cf46320d54b3dd3048a48ab77a295f0f37391ab9c05adf99bfcc139f4ec2fb89",
+    "NARR_ts1_loglogistic_1981-2010_spi": "d53940f538092a424b48a69b777696a73edbf7a65c18e16e4313c2aab29a5128",
+    "NARR_ts1_empirical_full_spei": "57aa314a6558e42351c734211b284ff8d262ce781c4e3f9b84d65e1c54a22ba4",
+    "NARR_ts1_empirical_full_spi": "482f1245cac77e510069ee15aa0b15e579e7ea694820135f58ee47856838bdc2",
+    "NARR_ts1_empirical_1981-2010_spei": "8893894b33410d3795e601c6a927cc7474734e4083e9b7b765443cffbb38a42b",
+    "NARR_ts1_empirical_1981-2010_spi": "6e357391b3525af1d03d6f7627c92b325b08ba0124e859a58a847d1b0dab87f1",
+    "NARR_ts3_loglogistic_full_spei": "fea19bd5c764bf8687dcbeb3964cbee58e97ca2141d705082344ae7c48215145",
+    "NARR_ts3_loglogistic_full_spi": "3c6271e11be22eb971e57ccbd6f76536e2d6ebde404cd723d22fd1a41e88671e",
+    "NARR_ts3_loglogistic_1981-2010_spei": "58d55158d148a3daacc0537910c7825cd5bd267130622e8b2834a4c232bc9d96",
+    "NARR_ts3_loglogistic_1981-2010_spi": "ebcce46cb4707c2a46c62dd96cd0d90f146e1ac56a08d26749fe0a4ec45730a4",
+    "NARR_ts3_empirical_full_spei": "60b465fd164340a1502a522597e996d1f10e0393656498f233756580cb10ad19",
+    "NARR_ts3_empirical_full_spi": "80ecd815035e89088ed18b48b58ff3b52a6ceb41d5d5c224945ae70331766c59",
+    "NARR_ts3_empirical_1981-2010_spei": "639d9c040b0ab704e0ca74da1a6990b6cb24d9ccbe21dd8f24db137af70266af",
+    "NARR_ts3_empirical_1981-2010_spi": "26ed24e0003a05495f309947d67573d6d40d0d54a464a850008056e3041f15b9",
+    "NARR_ts6_loglogistic_full_spei": "9026e724c3a87284afda79204812417801a0182f32dc2c073ba48a6fe332cf28",
+    "NARR_ts6_loglogistic_full_spi": "f802331c6994920eec7598f5bcccb49197ec65fbea0196bba12dd7ffb0e637e4",
+    "NARR_ts6_loglogistic_1981-2010_spei": "03caa287cb3fd7e6d1f2617126dcba57bd5beedab8900d634efc16c82f9c23cc",
+    "NARR_ts6_loglogistic_1981-2010_spi": "a5de661e99106e4bdc961848ad52304686734b79b2a9feb1bb590514b016c8a6",
+    "NARR_ts6_empirical_full_spei": "6ca66703dcb672ccbe66d60cf9a421bf7ac14df62b14e54e7513a8708150beb2",
+    "NARR_ts6_empirical_full_spi": "8d3b9cf599d51759d8d52238970740138fde9758b6ca271880e31ab4196c321c",
+    "NARR_ts6_empirical_1981-2010_spei": "ba6116cd130496004c2b39cb63c5a7b15883240f0f42c5876a1a8770a5ca1c74",
+    "NARR_ts6_empirical_1981-2010_spi": "8d843aa3bb06e9fa39e07eca9f09cb4459881f57c7c278d8bd26e70510413c92",
+    "NARR_ts9_loglogistic_full_spei": "3d81a10d85c6229654dd30178dcf31958ab1644c85d3d9638afac96bfeb81c45",
+    "NARR_ts9_loglogistic_full_spi": "1e6c92ea34410a785e7d81457f261399c63750b917a8117326fd0e2d07bb7b21",
+    "NARR_ts9_loglogistic_1981-2010_spei": "ac96914d656e98dba5f781384df2703bc86dee6fc2b48b320adb7df983dbdd53",
+    "NARR_ts9_loglogistic_1981-2010_spi": "8eef5bf43517a0c3dcaa32008a77bc25b22045c2ab07ef22e93a1efa2650f78e",
+    "NARR_ts9_empirical_full_spei": "97e732776a58f341b1670a2ee32dbaef26030e4b9b595b9ac20c62eadf1618b2",
+    "NARR_ts9_empirical_full_spi": "4f2c328523db9ef328cf6a4b452f609d2ea96eb706eeb7a5aa6db831d895127e",
+    "NARR_ts9_empirical_1981-2010_spei": "c4f2d76a6ff0034734c7f22de327cc9b53423554dddb6b0d1007c0b63713f05f",
+    "NARR_ts9_empirical_1981-2010_spi": "b4c8a7464d7715b9ebfe4a81444b7ac3ccbbc87981b8d9ff7e0a5f3a9a7e309d",
+    "NARR_ts12_loglogistic_full_spei": "8aa756a1fbc857fef6b703050bed4a03b38565560e5fb5847f1f14132ced9380",
+    "NARR_ts12_loglogistic_full_spi": "8fb02019eb468464aeffeba8d43828ea96ed8139a2727070c14b3439b5d2b634",
+    "NARR_ts12_loglogistic_1981-2010_spei": "7db1d2b3ed08423f87f11d565119ce3728ffe5858a3bd4dc58e432def750a78c",
+    "NARR_ts12_loglogistic_1981-2010_spi": "754372cfa43f407e5f7db9658333a107ca2ffe75bf19b6b088a73c2b36c99594",
+    "NARR_ts12_empirical_full_spei": "8b9be2d123fcf2484ff4dc881a9dc498d0501dc11d35a77c6b1bcea87384e952",
+    "NARR_ts12_empirical_full_spi": "fb2aab9fc1d1e44eecd68546195a1aee308c11d935b229ccd80c0b40dd30c42e",
+    "NARR_ts12_empirical_1981-2010_spei": "52c92f9673cfad0035598a3587d34fd6d7b0a33c1a3c848989ab817d3db56611",
+    "NARR_ts12_empirical_1981-2010_spi": "27c6ad168dbcc31616a34ca1dec97933641ea0b14f9788bef82873457cc58f8b",
+    "ERA5_ts1_loglogistic_full_spei": "47c84d0eff9d6643899ba13ad0226754e9978f178bf040081d8962cf0c536037",
+    "ERA5_ts1_loglogistic_full_spi": "9f27dbada802e6123da451f570b545071f910262fad584c212de80d5cb24f911",
+    "ERA5_ts1_loglogistic_1981-2010_spei": "82e42ff36036b5baf9f0d754eb6f387d17fe929c8d5b77a64c50d71117f2cf1d",
+    "ERA5_ts1_loglogistic_1981-2010_spi": "975654906eac254e7cd49c60403f5165042906e32677bd6618e372c33dad4777",
+    "ERA5_ts1_empirical_full_spei": "1fb76f6bf59a1f7ccea9c24aba9606c0be8536def064c418a8e1a367f3c27223",
+    "ERA5_ts1_empirical_full_spi": "4eb22c8bf1cc875a3e6c526d49a97d73e7f928cb89aadfbba699bbff53f45108",
+    "ERA5_ts1_empirical_1981-2010_spei": "194112b2fe6e7e030804063f463605729dbd963c7252feb184f984ec833993a8",
+    "ERA5_ts1_empirical_1981-2010_spi": "836df7d26e3af4d4288a0c05230158c1925d7d3bb5a062ec41b1d4ba4ce5e7f5",
+    "ERA5_ts3_loglogistic_full_spei": "7f5d3875b2ecc41e5e691e51115b6b6323d9b73799e524d8869d0abcba41108b",
+    "ERA5_ts3_loglogistic_full_spi": "db444bf728a2bb90fb863d4eccdab81d147a99c712366a1974ff1a5b77345c0c",
+    "ERA5_ts3_loglogistic_1981-2010_spei": "d647108041ab40af40890524afd630eac5684e4d9b1c6bd71ec951ec19f62e88",
+    "ERA5_ts3_loglogistic_1981-2010_spi": "ecc080d8e378045e79a75a71b381213714cdaa6db56634fc1c24b068b6124818",
+    "ERA5_ts3_empirical_full_spei": "adaad742eb6ee2082b0725a77dbb776c1d0e6c6c1a0863c406a80db11156d6ea",
+    "ERA5_ts3_empirical_full_spi": "6d1f4988f00d102cb1342b91aa469728ef081d747122464db37e51d68af1a1b2",
+    "ERA5_ts3_empirical_1981-2010_spei": "8ea7adf727e1a69c4a4cd600fef3ed815ffc6745d35482312766bd9b50ff2cdd",
+    "ERA5_ts3_empirical_1981-2010_spi": "cafa87b5a1f88055f72be39fee9c3b37092e1f54344015677cfcb2e324067778",
+    "ERA5_ts6_loglogistic_full_spei": "e7c7f6fee3e0859d562de5a39098ce42804aad5f73d2fc377e0e03bc02c8542a",
+    "ERA5_ts6_loglogistic_full_spi": "7f7ab5c3aa6e42807723865af7f2b3c8b4369c1b91f9a0489e9523f87febbd18",
+    "ERA5_ts6_loglogistic_1981-2010_spei": "7663671267c959d2d1bce3e723fd20d63a26947d71352f3e00e5cc944963e771",
+    "ERA5_ts6_loglogistic_1981-2010_spi": "1cec61ca4db7c9f4e093e55dda717bff21124c1317135658df2cdafe061a678b",
+    "ERA5_ts6_empirical_full_spei": "5006eb1c331489efc95aa0f4ba555f33a7e6bfc08ae781c8c9ddd56a78d608ff",
+    "ERA5_ts6_empirical_full_spi": "a65376c81af446eca966e421b1a4a910104959dea602e2ae4864fa62ee763a71",
+    "ERA5_ts6_empirical_1981-2010_spei": "1013874df6d0795fec498b26a595bea99bcbb7b2184a717680ae10a5dd69e1e4",
+    "ERA5_ts6_empirical_1981-2010_spi": "92458f42eced2e975fb3f5a0aacb8d7faa008c4a486c802f7e471c6dabb1621b",
+    "ERA5_ts9_loglogistic_full_spei": "615986a8b29f62fb0fca17053d035ed3f7a97a9992d8df15def58115454ea51c",
+    "ERA5_ts9_loglogistic_full_spi": "91a5b80e2c28f2873ddd0948b55cc2ef540ae08caf5a5af96cc5fde69a7286c3",
+    "ERA5_ts9_loglogistic_1981-2010_spei": "18a06ae73dd00154d86f8e34af9e57395c212f0e251323275f80a654df76ffdd",
+    "ERA5_ts9_loglogistic_1981-2010_spi": "f8bd3fdab70a76502fbe0294d707aedc6f7586f16a49be3543a3269ec03c08c8",
+    "ERA5_ts9_empirical_full_spei": "52903df6d69e3358c623590af907cfa2a301b9fdc3ca407a2c743ed6ec93b59c",
+    "ERA5_ts9_empirical_full_spi": "1bafc6d7c6934791a9bdddd3066b0fd4ad118f95b09dabf5dd42baf5cba93288",
+    "ERA5_ts9_empirical_1981-2010_spei": "d730ff01bcb509537c72932f15b9221a94c0a7229ca31d716b347bce6938d114",
+    "ERA5_ts9_empirical_1981-2010_spi": "6520948e6134ee841659ca7c16064741d18b72fcec88845f7b276145a52dd3db",
+    "ERA5_ts12_loglogistic_full_spei": "9d22cf598df542a7af5af4dfc112f6fb96d7850652c35b486b0ff7c446913618",
+    "ERA5_ts12_loglogistic_full_spi": "c1964b4b5f99e6bfabde264f907b76915c50f4e452afe6e66c3c7d2dfa25d1c4",
+    "ERA5_ts12_loglogistic_1981-2010_spei": "7bd00b3b3a161d65ead4e8f5d7da4fa50c5eaf63a6b9c59d9f2dc07f382151be",
+    "ERA5_ts12_loglogistic_1981-2010_spi": "d6a939380031574e04f14f03753d152ba8734102ad89828e2a8e00b388a4b674",
+    "ERA5_ts12_empirical_full_spei": "490572ad9b15cea816826fb52b672a9f91d0dbcfd12e26620ed96ecd9f1398bf",
+    "ERA5_ts12_empirical_full_spi": "1a75568dd38fbceaa41dcf42434faa5220c6a0486f80622544ed789840d7934a",
+    "ERA5_ts12_empirical_1981-2010_spei": "1697cc43126219849dc452e8a524c2068ce6a6af0755bad6c7115aa95a2631de",
+    "ERA5_ts12_empirical_1981-2010_spi": "c4d304b70d8cd55cc9b0282fd1a55aa45f74a4fbe22de39bc004b1ab55ae9ec2"
+  },
+  "output_sha256": {
+    "scenarios_tiefix.csv": "5e85d9225be7dbd5dbb44a77ccc77b2cdf8e9ae8a801ee9e386c9d6fa02bf009",
+    "decomposition_tiefix.csv": "17d88c4436ad1bdaec78d57857125f79df144f0e6ac6932fb0ae375198aa99b0",
+    "reproduction_check.csv": "26d012739bb2dcc21999e7164ffbb9e6d67d61f403c35e9216093d68a3dd874a",
+    "seed_sensitivity.csv": "0e8a2f69dcd1499179b24a4d07583e87ab80fff925c6b0aab8507d3a76aa2e79",
+    "PHASE2_REPORT.md": "e47638e11e8913d2ee70c536ec820510a80936b361706042ee060bfe6d8e2bd6",
+    "changed_gt50pct.csv": "6715e24c64f65d03b2b3ba157b7ffa061d2b8742a225ee7b6f71d357b14ff6f8"
+  }
+}
