@@ -1,0 +1,60 @@
+{
+  "arm": "B",
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "1.26.4",
+  "scipy": "1.11.4",
+  "pandas": "2.1.4",
+  "synthetic": false,
+  "config_sha256": "19ad4cc0223a88bbc57152c5588e28d8766a87c7f303a8d4c1dfca5550441860",
+  "detector": "cdpe_sens.author_detector (author's published detector)",
+  "detector_params": {
+    "majority_frac": 0.5,
+    "max_na_frac": 0.1,
+    "radius_deg": 4.0
+  },
+  "primary_metric": "n_cdpe_months",
+  "secondary_metric": "n_events (contiguous-run count from cdpe_sens.events.event_table; labelled, never conflated with n_cdpe_months)",
+  "driver": "scripts/run_two_arms.py",
+  "chunk": "arm_b_r4.0",
+  "radius_deg": 4.0,
+  "detector_callable": "cdpe_sens.author_detector.make_author_detector",
+  "period": [
+    "1980-01-01",
+    "2014-12-01"
+  ],
+  "n_scenarios": 240,
+  "levels": {
+    "cal_period": [
+      "full",
+      "1981-2010"
+    ],
+    "dist": [
+      "loglogistic",
+      "empirical"
+    ],
+    "min_area_frac": [
+      "0.1"
+    ],
+    "min_cluster_cells": [
+      "1"
+    ],
+    "threshold": [
+      "1.0",
+      "1.5",
+      "2.0"
+    ],
+    "timescale": [
+      "1",
+      "3",
+      "6",
+      "9",
+      "12"
+    ],
+    "water_balance": [
+      "spei",
+      "spi"
+    ]
+  },
+  "elapsed_seconds": 43.6
+}

@@ -1,0 +1,113 @@
+{
+  "arm": "B",
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "1.26.4",
+  "scipy": "1.11.4",
+  "pandas": "2.1.4",
+  "synthetic": false,
+  "config_sha256": "19ad4cc0223a88bbc57152c5588e28d8766a87c7f303a8d4c1dfca5550441860",
+  "detector": "cdpe_sens.author_detector (author's published detector)",
+  "detector_params": {
+    "majority_frac": 0.5,
+    "max_na_frac": 0.1,
+    "radius_deg": [
+      3.0,
+      4.0,
+      5.0
+    ]
+  },
+  "primary_metric": "n_cdpe_months",
+  "secondary_metric": "n_events (contiguous-run count from cdpe_sens.events.event_table; labelled, never conflated with n_cdpe_months)",
+  "driver": "scripts/run_two_arms.py",
+  "period": [
+    "1980-01-01",
+    "2014-12-01"
+  ],
+  "n_scenarios": 720,
+  "baseline": {
+    "dataset": "NARR",
+    "timescale": 6,
+    "dist": "loglogistic",
+    "cal_period": "full",
+    "water_balance": "spei",
+    "threshold": 1.0,
+    "min_area_frac": 0.1,
+    "min_cluster_cells": 1,
+    "radius_deg": 4.0
+  },
+  "levels": {
+    "dataset": [
+      "NARR",
+      "ERA5"
+    ],
+    "timescale": [
+      "1",
+      "3",
+      "6",
+      "9",
+      "12"
+    ],
+    "dist": [
+      "loglogistic",
+      "empirical"
+    ],
+    "cal_period": [
+      "full",
+      "1981-2010"
+    ],
+    "water_balance": [
+      "spei",
+      "spi"
+    ],
+    "threshold": [
+      "1.0",
+      "1.5",
+      "2.0"
+    ],
+    "min_area_frac": [
+      "0.1"
+    ],
+    "min_cluster_cells": [
+      "1"
+    ],
+    "radius_deg": [
+      "3.0",
+      "4.0",
+      "5.0"
+    ]
+  },
+  "detector_callable": "cdpe_sens.author_detector.make_author_detector",
+  "note": "min_area_frac and min_cluster_cells are singletons in the config because run_sensitivity requires the factors; the author detector ignores both by construction, so they carry zero variance share by design, not by estimation.",
+  "chunks": {
+    "r3.0": 45.1,
+    "r4.0": 43.6,
+    "r5.0": 47.5
+  },
+  "input_files": [
+    {
+      "dataset": "NARR",
+      "role": "precip",
+      "path": "data/narr_prcp_monthly_totals.nc",
+      "bytes": 163200837
+    },
+    {
+      "dataset": "NARR",
+      "role": "tmean",
+      "path": "data/narr_t2m_monthly.nc",
+      "bytes": 163200703
+    },
+    {
+      "dataset": "ERA5",
+      "role": "precip",
+      "path": "data/era5_tp_monthly.nc",
+      "bytes": 6814073
+    },
+    {
+      "dataset": "ERA5",
+      "role": "tmean",
+      "path": "data/era5_t2m_monthly.nc",
+      "bytes": 6814038
+    }
+  ]
+}

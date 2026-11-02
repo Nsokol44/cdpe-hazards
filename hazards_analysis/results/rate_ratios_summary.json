@@ -1,0 +1,236 @@
+{
+  "tornado_all": {
+    "window_years": [
+      1980,
+      2023
+    ],
+    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
+    "baseline": {
+      "rr": 1.1267634285779056,
+      "ci_lo": 0.8265188853740559,
+      "ci_hi": 1.4953727633845955,
+      "n_cdpe_months": 46
+    },
+    "envelope": {
+      "n_configs_included": 23,
+      "rr_min": 0.9911375411277594,
+      "rr_max": 1.4977979504001282,
+      "share_same_side_as_baseline": 0.9565217391304348,
+      "share_ci_excludes_1": 0.0
+    },
+    "gate_G2_robust": false,
+    "tier": "primary"
+  },
+  "hail_ge1in": {
+    "window_years": [
+      1980,
+      2023
+    ],
+    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
+    "baseline": {
+      "rr": 1.1045322432605502,
+      "ci_lo": 0.7984454932644086,
+      "ci_hi": 1.4912305377699526,
+      "n_cdpe_months": 46
+    },
+    "envelope": {
+      "n_configs_included": 23,
+      "rr_min": 0.8637922642713451,
+      "rr_max": 1.5250056997602643,
+      "share_same_side_as_baseline": 0.9565217391304348,
+      "share_ci_excludes_1": 0.30434782608695654
+    },
+    "gate_G2_robust": false,
+    "tier": "primary"
+  },
+  "heatwave_days_per_cell": {
+    "window_years": [
+      1980,
+      2023
+    ],
+    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
+    "baseline": {
+      "rr": 0.8998829640971758,
+      "ci_lo": 0.5399565320140974,
+      "ci_hi": 1.3879272305831936,
+      "n_cdpe_months": 46
+    },
+    "envelope": {
+      "n_configs_included": 23,
+      "rr_min": 0.5594049578224913,
+      "rr_max": 2.6185416966930695,
+      "share_same_side_as_baseline": 0.30434782608695654,
+      "share_ci_excludes_1": 0.13043478260869565
+    },
+    "gate_G2_robust": false,
+    "tier": "primary"
+  },
+  "glm_flash_box": {
+    "window_years": [
+      2018,
+      2023
+    ],
+    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
+    "baseline": {
+      "rr": 0.9847435952509194,
+      "ci_lo": 0.8442852946874394,
+      "ci_hi": 1.2047558782388597,
+      "n_cdpe_months": 4
+    },
+    "envelope": {
+      "n_configs_included": 20,
+      "rr_min": 0.9194181009963397,
+      "rr_max": 1.1945954414007138,
+      "share_same_side_as_baseline": 0.5,
+      "share_ci_excludes_1": 0.0
+    },
+    "gate_G2_robust": false,
+    "tier": "primary"
+  },
+  "tornado_ef1plus": {
+    "window_years": [
+      1980,
+      2023
+    ],
+    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
+    "baseline": {
+      "rr": 1.2207725725448886,
+      "ci_lo": 0.8061527144307057,
+      "ci_hi": 1.7325335219823264,
+      "n_cdpe_months": 46
+    },
+    "envelope": {
+      "n_configs_included": 23,
+      "rr_min": 0.9132900414044546,
+      "rr_max": 1.8631718118650793,
+      "share_same_side_as_baseline": 0.8695652173913043,
+      "share_ci_excludes_1": 0.043478260869565216
+    },
+    "gate_G2_robust": false,
+    "tier": "secondary"
+  },
+  "tornado_ef2plus": {
+    "window_years": [
+      1980,
+      2023
+    ],
+    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
+    "baseline": {
+      "rr": 1.2147916963515735,
+      "ci_lo": 0.6894957990256526,
+      "ci_hi": 1.842533994519854,
+      "n_cdpe_months": 46
+    },
+    "envelope": {
+      "n_configs_included": 23,
+      "rr_min": 0.7822675611397637,
+      "rr_max": 2.0549923829121677,
+      "share_same_side_as_baseline": 0.6521739130434783,
+      "share_ci_excludes_1": 0.043478260869565216
+    },
+    "gate_G2_robust": false,
+    "tier": "secondary"
+  },
+  "hail_all": {
+    "window_years": [
+      1980,
+      2023
+    ],
+    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
+    "baseline": {
+      "rr": 1.100118396881686,
+      "ci_lo": 0.8055991439307066,
+      "ci_hi": 1.418894771192287,
+      "n_cdpe_months": 46
+    },
+    "envelope": {
+      "n_configs_included": 23,
+      "rr_min": 0.9358461816516797,
+      "rr_max": 1.4468911309047268,
+      "share_same_side_as_baseline": 0.9565217391304348,
+      "share_ci_excludes_1": 0.2608695652173913
+    },
+    "gate_G2_robust": false,
+    "tier": "secondary"
+  },
+  "split_era_baseline": {
+    "tornado_all": {
+      "1980-1995": {
+        "rr": 1.018495947345969,
+        "ci_lo": 0.7519682397831919,
+        "ci_hi": 1.3754207377583212,
+        "n_cdpe_months": 21
+      },
+      "1996-2023": {
+        "rr": 1.1984321491309728,
+        "ci_lo": 0.7838908886291744,
+        "ci_hi": 1.636005187314987,
+        "n_cdpe_months": 25
+      }
+    },
+    "tornado_ef1plus": {
+      "1980-1995": {
+        "rr": 1.0184476360065902,
+        "ci_lo": 0.6886101381247544,
+        "ci_hi": 1.4661715363602,
+        "n_cdpe_months": 21
+      },
+      "1996-2023": {
+        "rr": 1.3365418958011086,
+        "ci_lo": 0.7519730151521491,
+        "ci_hi": 2.0753793175044444,
+        "n_cdpe_months": 25
+      }
+    },
+    "tornado_ef2plus": {
+      "1980-1995": {
+        "rr": 1.0686781915037549,
+        "ci_lo": 0.6236944282942817,
+        "ci_hi": 1.7951164280978555,
+        "n_cdpe_months": 21
+      },
+      "1996-2023": {
+        "rr": 1.3143949011963034,
+        "ci_lo": 0.49897576803657484,
+        "ci_hi": 2.3128024862334233,
+        "n_cdpe_months": 25
+      }
+    },
+    "hail_all": {
+      "1980-1995": {
+        "rr": 0.9116831926705153,
+        "ci_lo": 0.6371720538559766,
+        "ci_hi": 1.382937846979173,
+        "n_cdpe_months": 21
+      },
+      "1996-2023": {
+        "rr": 1.1962900464376711,
+        "ci_lo": 0.9716946290895979,
+        "ci_hi": 1.4467138786950116,
+        "n_cdpe_months": 25
+      }
+    },
+    "hail_ge1in": {
+      "1980-1995": {
+        "rr": 0.9081958579855429,
+        "ci_lo": 0.6801012059127618,
+        "ci_hi": 1.2277485772188723,
+        "n_cdpe_months": 21
+      },
+      "1996-2023": {
+        "rr": 1.1949885570866394,
+        "ci_lo": 0.9406092164441933,
+        "ci_hi": 1.5326273617666182,
+        "n_cdpe_months": 25
+      }
+    }
+  },
+  "glm_completeness": {
+    "months_in_window": 72,
+    "months_valid": 70,
+    "effective_window_from": "2018-03",
+    "months_in_effective_window": 70,
+    "months_valid_effective": 70,
+    "gate_G1_pass": true
+  }
+}

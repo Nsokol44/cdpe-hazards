@@ -1,0 +1,92 @@
+{
+  "arm": "B",
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "synthetic": false,
+  "config_sha256": "19ad4cc0223a88bbc57152c5588e28d8766a87c7f303a8d4c1dfca5550441860",
+  "detector": "cdpe_sens.author_detector (author's published detector) [input fields land-masked; detector unchanged]",
+  "detector_params": {
+    "majority_frac": 0.5,
+    "max_na_frac": 0.1,
+    "radius_deg": 3.0
+  },
+  "primary_metric": "n_cdpe_months",
+  "secondary_metric": "n_events (contiguous-run count from cdpe_sens.events.event_table; labelled, never conflated with n_cdpe_months)",
+  "driver": "scripts/run_arm_b_masked.py",
+  "chunk": "arm_b_r3.0",
+  "radius_deg": 3.0,
+  "detector_callable": "cdpe_sens.author_detector.make_author_detector (wrapped: land mask applied to input field)",
+  "land_mask": {
+    "applied": true,
+    "application": "Water cells set to NaN in every computed index field before detection; cdpe_sens.author_detector itself unmodified. Reproduces Arm A semantics (SPEIbase ocean cells are fill/NaN).",
+    "source_product": "SPEIbase v2.10 spei01.nc (land-only product; ocean cells are fill in every month)",
+    "source_file": "data/spei01.nc",
+    "source_file_sha256": "fff779babfc2dd50ccc84afce59ba66ec8d5f23d1263512b0fb030172ece3bc3",
+    "speibase_release": "v2.10 (CRU TS 4.08 based, SPEI R package 1.8.1, Jan 1901 - Dec 2023), Digital.CSIC record 10261/364137, DOI 10.20350/digitalCSIC/16497. NOTE: v2.11 (CRU TS 4.09, through Dec 2024) is listed at https://spei.csic.es/database.html but its file endpoints could not be reached from this network on 2026-10-04; v2.10 was obtained instead and the substitution is disclosed in data/DATA_MANIFEST.md. The 1980-2024 baseline check therefore runs on 1980-2023 with this release.",
+    "clip": {
+      "lat": [
+        24.81,
+        50.0
+      ],
+      "lon": [
+        -125.62,
+        -66.58
+      ]
+    },
+    "window": [
+      "1980-01-01",
+      "2023-12-31"
+    ],
+    "land_rule": "SPEIbase cell is land iff finite in >= 1 month of the window (audit AUDIT_FINDINGS.md Item 2)",
+    "speibase_grid_land_cells": 4399,
+    "speibase_grid_total_cells": 5900,
+    "speibase_cells_finite_all_months": 4394,
+    "speibase_cells_finite_some_months": 5,
+    "transfer_to_arm_b_grid": "nearest SPEIbase cell per Arm B cell (grids offset 0.25 deg; numpy argmin first-occurrence ties, as in the audit)",
+    "arm_b_grid_land_cells": 4443,
+    "arm_b_grid_total_cells": 6069,
+    "arm_b_grid_land_fraction": 0.7320810677212062,
+    "scope_note": "Mask is global land inside the bounding box (Canadian/Mexican land cells are land), matching Arm A; it is not a US-only mask."
+  },
+  "period": [
+    "1980-01-01",
+    "2014-12-01"
+  ],
+  "n_scenarios": 240,
+  "levels": {
+    "cal_period": [
+      "full",
+      "1981-2010"
+    ],
+    "dist": [
+      "loglogistic",
+      "empirical"
+    ],
+    "min_area_frac": [
+      "0.1"
+    ],
+    "min_cluster_cells": [
+      "1"
+    ],
+    "threshold": [
+      "1.0",
+      "1.5",
+      "2.0"
+    ],
+    "timescale": [
+      "1",
+      "3",
+      "6",
+      "9",
+      "12"
+    ],
+    "water_balance": [
+      "spei",
+      "spi"
+    ]
+  },
+  "elapsed_seconds": 51.7
+}

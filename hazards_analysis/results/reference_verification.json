@@ -1,0 +1,177 @@
+{
+  "10.1002/joc.3413": {
+    "authors": [
+      "Abatzoglou, John T."
+    ],
+    "title": "Development of gridded surface meteorological data for ecological applications and modelling",
+    "journal": "International Journal of Climatology",
+    "year": 2011,
+    "volume": "33",
+    "pages": "121-131",
+    "type": "journal-article"
+  },
+  "10.1175/JCLI-D-12-00383.1": {
+    "authors": [
+      "Perkins, S. E.",
+      "Alexander, L. V."
+    ],
+    "title": "On the Measurement of Heat Waves",
+    "journal": "Journal of Climate",
+    "year": 2013,
+    "volume": "26",
+    "pages": "4500-4517",
+    "type": "journal-article"
+  },
+  "10.1016/j.atmosres.2013.01.006": {
+    "authors": [
+      "Goodman, Steven J.",
+      "Blakeslee, Richard J.",
+      "Koshak, William J.",
+      "Mach, Douglas",
+      "Bailey, Jeffrey",
+      "Buechler, Dennis",
+      "Carey, Larry",
+      "Schultz, Chris",
+      "Bateman, Monte",
+      "McCaul, Eugene",
+      "Stano, Geoffrey"
+    ],
+    "title": "The GOES-R Geostationary Lightning Mapper (GLM)",
+    "journal": "Atmospheric Research",
+    "year": 2013,
+    "volume": "125-126",
+    "pages": "34-49",
+    "type": "journal-article"
+  },
+  "10.1029/2020EA001237": {
+    "authors": [
+      "Bateman, Monte",
+      "Mach, Douglas",
+      "Stock, Michael"
+    ],
+    "title": "Further Investigation Into Detection Efficiency and False Alarm Rate for the Geostationary Lightning Mappers Aboard GOES\u201016 and GOES\u201017",
+    "journal": "Earth and Space Science",
+    "year": 2021,
+    "volume": "8",
+    "pages": null,
+    "type": "journal-article"
+  },
+  "10.1038/s43017-022-00371-z": {
+    "authors": [
+      "Domeisen, Daniela I. V.",
+      "Eltahir, Elfatih A. B.",
+      "Fischer, Erich M.",
+      "Knutti, Reto",
+      "Perkins-Kirkpatrick, Sarah E.",
+      "Sch\u00e4r, Christoph",
+      "Seneviratne, Sonia I.",
+      "Weisheimer, Antje",
+      "Wernli, Heini"
+    ],
+    "title": "Prediction and projection of heatwaves",
+    "journal": "Nature Reviews Earth &amp; Environment",
+    "year": 2022,
+    "volume": "4",
+    "pages": "36-50",
+    "type": "journal-article"
+  },
+  "10.1038/s43017-020-00133-9": {
+    "authors": [
+      "Raupach, Timothy H.",
+      "Martius, Olivia",
+      "Allen, John T.",
+      "Kunz, Michael",
+      "Lasher-Trapp, Sonia",
+      "Mohr, Susanna",
+      "Rasmussen, Kristen L.",
+      "Trapp, Robert J.",
+      "Zhang, Qinghong"
+    ],
+    "title": "The effects of climate change on hailstorms",
+    "journal": "Nature Reviews Earth &amp; Environment",
+    "year": 2021,
+    "volume": "2",
+    "pages": "213-226",
+    "type": "journal-article"
+  },
+  "10.1175/WAF910.1": {
+    "authors": [
+      "Verbout, Stephanie M.",
+      "Brooks, Harold E.",
+      "Leslie, Lance M.",
+      "Schultz, David M."
+    ],
+    "title": "Evolution of the U.S. Tornado Database: 1954\u20132003",
+    "journal": "Weather and Forecasting",
+    "year": 2006,
+    "volume": "21",
+    "pages": "86-93",
+    "type": "journal-article"
+  },
+  "10.1175/JAMC-D-22-0195.1": {
+    "authors": [
+      "Battaglioli, Francesco",
+      "Groenemeijer, Pieter",
+      "P\u00fa\u010dik, Tom\u00e1\u0161",
+      "Taszarek, Mateusz",
+      "Ulbrich, Uwe",
+      "Rust, Henning"
+    ],
+    "title": "Modeled Multidecadal Trends of Lightning and (Very) Large Hail in Europe and North America (1950\u20132021)",
+    "journal": "Journal of Applied Meteorology and Climatology",
+    "year": 2023,
+    "volume": "62",
+    "pages": "1627-1653",
+    "type": "journal-article"
+  },
+  "10.1038/ngeo2385": {
+    "authors": [
+      "Allen, John T.",
+      "Tippett, Michael K.",
+      "Sobel, Adam H."
+    ],
+    "title": "Influence of the El Ni\u00f1o/Southern Oscillation on tornado and hail frequency in the United States",
+    "journal": "Nature Geoscience",
+    "year": 2015,
+    "volume": "8",
+    "pages": "278-283",
+    "type": "journal-article"
+  },
+  "10.55599/ejssm.v10i3.60": {
+    "authors": [
+      "Allen, John T.",
+      "Tippett, Michael K."
+    ],
+    "title": "The Characteristics of United States Hail Reports: 1955-2014",
+    "journal": "E-Journal of Severe Storms Meteorology",
+    "year": 2021,
+    "volume": "10",
+    "pages": "1-31",
+    "type": "journal-article"
+  },
+  "10.1016/j.wace.2024.100722": {
+    "authors": [
+      "Yoon, Donghyuck",
+      "Chen, Jan-Huey",
+      "Seo, Eunkyo"
+    ],
+    "title": "Contribution of land-atmosphere coupling in 2022 CONUS compound drought-heatwave events and implications for forecasting",
+    "journal": "Weather and Climate Extremes",
+    "year": 2024,
+    "volume": "46",
+    "pages": "100722",
+    "type": "journal-article"
+  },
+  "10.1038/s44304-024-00052-5": {
+    "authors": [
+      "Das, Subhadarsini",
+      "Allen, John T."
+    ],
+    "title": "Bayesian estimation of the likelihood of extreme hail sizes over the United States",
+    "journal": "npj Natural Hazards",
+    "year": 2024,
+    "volume": "1",
+    "pages": null,
+    "type": "journal-article"
+  }
+}

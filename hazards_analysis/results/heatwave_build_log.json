@@ -1,0 +1,9 @@
+{
+  "land_cells": 3608,
+  "grid_shape": [
+    50,
+    118
+  ],
+  "threshold": "exact 98th percentile, 31-day window, 1981-2010",
+  "months": 528
+}
