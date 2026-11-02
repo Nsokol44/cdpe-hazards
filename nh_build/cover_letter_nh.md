@@ -1,6 +1,6 @@
 Dear Editors,
 
-Please consider the enclosed manuscript, "How much does the definition matter? Concurrent drought-pluvial regimes and the occurrence of tornadoes, hail, heat waves, and lightning over the contiguous United States," by Nicholas J. Sokol, for publication in Natural Hazards. The paper falls within the journal's atmospheric and climatological hazard sections, as named in its aims and scope.
+Please consider the enclosed manuscript, "How much does the definition matter? Concurrent drought-pluvial regimes and the occurrence of tornadoes, hail, heat waves, and lightning over the contiguous United States," by Nicholas J. Sokol, for publication in Natural Hazards. The paper falls within the journal's scope on atmospheric and climatic hazards.
 
 First, the manuscript decomposes the sensitivity of concurrent drought-pluvial event (CDPE) detection across a 756-configuration ensemble spanning the full index-construction chain, from index product and fitting distribution to detection threshold, buffer radius, and land-mask treatment. The threshold and the fitting distribution dominate CDPE frequency, configurations agree far less on event timing than on counts, and a land mask removes about 70 percent of baseline events.
 

@@ -259,7 +259,15 @@ def reference_entry(key, f):
         return head + f" {f.get('publisher', '')}." + doi_tail
     extra = f.get("howpublished", "") or f.get("publisher", "")
     note = f.get("note", "")
-    tail = f" {extra}." if extra else ""
+    # Polish round (author-directed, 2026-11-01): when the trailing
+    # field is itself a URL (Adams 2017, howpublished = the GitHub
+    # address), Springer style leaves no period after it.
+    if extra.startswith("http"):
+        tail = f" {extra}"
+    elif extra:
+        tail = f" {extra}."
+    else:
+        tail = ""
     if note:
         tail += f" {note}."
     return head + tail + doi_tail
@@ -448,6 +456,29 @@ def main() -> int:
     # booktabs treatment; Table 3 keeps the grid style, per the brief.
     for tbl in list(doc.tables)[:2]:
         style_booktabs(tbl)
+
+    # Polish round (author-directed, 2026-11-01): Table 2 layout only,
+    # no content change. The first column widens so entries such as
+    # "SPEI-1, theta = 1.5, r = 4 degrees" stay on one line, and the
+    # paragraph after the table gains space before it so the last row
+    # no longer touches the following text. Widths sum to the 6.0 in
+    # text measure (Letter, 1.25 in side margins).
+    from docx.shared import Inches
+    from docx.text.paragraph import Paragraph as _Paragraph
+    _t2 = doc.tables[1]
+    _widths = [Inches(2.80), Inches(1.25), Inches(0.95), Inches(1.00)]
+    _t2.autofit = False
+    _layout = OxmlElement("w:tblLayout")
+    _layout.set(qn("w:type"), "fixed")
+    _t2._tbl.tblPr.append(_layout)
+    for _row in _t2.rows:
+        for _ci, _cell in enumerate(_row.cells):
+            _cell.width = _widths[_ci]
+    for _ci, _col in enumerate(_t2.columns):
+        _col.width = _widths[_ci]
+    _next = _t2._tbl.getnext()
+    if _next is not None and _next.tag == qn("w:p"):
+        _Paragraph(_next, doc).paragraph_format.space_before = Pt(6)
 
     cited = set()
     for group in re.findall(r"\[@([^\]]+)\]", raw):
