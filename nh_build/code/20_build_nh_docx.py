@@ -452,9 +452,10 @@ def main() -> int:
         j0 += 1
     render(body_lines[j0:])
 
-    # Tables 1 and 2 (the first two tables in document order) get the
-    # booktabs treatment; Table 3 keeps the grid style, per the brief.
-    for tbl in list(doc.tables)[:2]:
+    # All tables get the booktabs treatment (Phase 5 rewrite, 2026-11-02:
+    # the package now carries three tables, and the standing review rule
+    # asks for booktabs rules on every table).
+    for tbl in list(doc.tables):
         style_booktabs(tbl)
 
     # Polish round (author-directed, 2026-11-01): Table 2 layout only,
@@ -465,7 +466,8 @@ def main() -> int:
     # text measure (Letter, 1.25 in side margins).
     from docx.text.paragraph import Paragraph as _Paragraph
     _t2 = doc.tables[1]
-    _widths = [Inches(2.80), Inches(1.25), Inches(0.95), Inches(1.00)]
+    assert len(_t2.columns) == 4, "Table 2 must have four columns"
+    _widths = [Inches(1.55), Inches(1.15), Inches(1.65), Inches(1.65)]
     _t2.autofit = False
     _layout = OxmlElement("w:tblLayout")
     _layout.set(qn("w:type"), "fixed")
@@ -549,9 +551,9 @@ def main() -> int:
             n_captions += 1
         if par._p.xpath(".//w:drawing"):
             par.paragraph_format.keep_with_next = True
-    # Rebuild 2026-11-02: 10 captions (3 tables + 7 figures; the pole
-    # map joined as Figure 2 and the lightning arm was removed).
-    assert n_captions == 10, f"expected 10 captions, found {n_captions}"
+    # Phase 5 rewrite 2026-11-02: 9 captions (3 tables + 6 figures in the
+    # final numbering by first mention).
+    assert n_captions == 9, f"expected 9 captions, found {n_captions}"
 
     cp = doc.core_properties
     cp.author = "Nicholas J. Sokol"

@@ -1,0 +1,13 @@
+quantity,value
+companion_published_months_1980_2024,52
+companion_months_in_2024,0
+companion_months_trimmed_to_2023,52
+armA_baseline_months_1980_2023,46
+intersection_months,32
+armA_subset_of_companion_trimmed,False
+months_only_in_armA,1982-02;1984-01;1985-07;1990-06;1990-11;1994-03;1995-07;1998-01;2005-04;2006-06;2007-11;2008-04;2008-08;2023-07
+months_only_in_companion_trimmed,1981-03;1985-09;1987-03;1988-04;1989-02;1989-11;1991-07;1992-01;1993-03;1995-11;1999-05;1999-08;2004-09;2004-11;2007-05;2009-09;2013-06;2016-10;2020-10;2022-03
+months_companion_2024,
+headline_gap_spei1,6
+gap_explained_by_window_alone,0
+share_of_gap_explained_by_window,0.0

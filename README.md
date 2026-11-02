@@ -90,3 +90,19 @@ in full.
 
 Code in this archive is released under the MIT License. Data products
 remain under the terms of their respective providers.
+
+## Rebuild of 2026-11-02 (two-paper split)
+
+Following external review, the hazards work was split into a frequency
+paper (Natural Hazards, this repository's `nh_build/`) and a physical
+dynamics paper (Advances in Atmospheric Sciences special issue; design
+memo only, `paper2_design/DESIGN_MEMO.md`). The Natural Hazards paper
+now uses the companion Study-1 catalog on SPEIbase v2.11 (52 baseline
+months) as its headline catalog, with a US-anchored subset (both poles
+inside the CONUS, 15 months), a negative-binomial count model as the
+primary estimand, and a lagged (antecedent-month) arm addressing
+reverse causation. Alignment evidence: `nh_build/CATALOG_ALIGNMENT_2026-11-02.md`;
+statistics: `hazards_analysis/results/phase3_2026-11-02/` (one-command
+rerun `nh_build/code/run_phase3.sh`); the Arm B tie-break correction
+and redone variance decomposition are under `sensitivity_analysis/`
+and `monthsets/run_armB_tiefix_2026-11-02/`.
