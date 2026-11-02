@@ -2,10 +2,10 @@
 """Step 22 - Verification suite for the Natural Hazards package.
 
 1. Citation closure (step 08 logic) on manuscript_nh.md / references_nh.bib,
-   plus: 40 reference entries rendered in manuscript_nh.docx and the DOI
+   plus: 37 reference entries rendered in manuscript_nh.docx and the DOI
    set in the rendered list equals the DOI set in the bib.
 2. Number trace (step 11 logic) on manuscript_nh.md against the results
-   corpus of the parent package: expects 360 literals, 0 unmatched.
+   corpus of the parent package: expects 0 unmatched literals.
 3. Numeric-token identity: full numeric-token multiset of the NH source
    .md equals that of the AAS source .md (citations and YAML stripped),
    and the rendered-text numeric multiset of manuscript_nh.docx equals
@@ -14,7 +14,10 @@
 5. Em dash and prose-semicolon scans on both final DOCXs.
 6. DOCX hygiene: no 'python-docx' string, no themeColor attributes,
    every w:color is 000000, creator metadata, blank dc:description,
-   line numbering present, 5 embedded figures MD5-matched to figures/.
+   line numbering present, 7 embedded figures MD5-matched to figures/.
+
+Rebuild 2026-11-02: expectations updated for the lightning-arm removal
+and the pole-map insertion (Figure 2), as itemised at each check.
 """
 import hashlib
 import json
@@ -81,7 +84,9 @@ paras = [p.text for p in nh_doc.paragraphs]
 ri = paras.index("References")
 sdi = paras.index("Statements and Declarations")
 ref_paras = [t for t in paras[ri + 1:sdi] if t.strip()]
-check("rendered reference entries == 40", len(ref_paras) == 40,
+# Rebuild 2026-11-02: 37 entries (the three GLM-only references left
+# with the lightning arm).
+check("rendered reference entries == 37", len(ref_paras) == 37,
       f"found {len(ref_paras)}")
 bib_dois = {f["doi"].strip() for f in bib.values() if f.get("doi")}
 rendered_dois = set(re.findall(r"https://doi\.org/(\S+)", nh_text))
@@ -141,8 +146,14 @@ for col in storm.columns[1:]:
     allowed.update(round_variants(float(storm[col].sum())))
     allowed.update(round_variants(float(storm[col].mean())))
 allowed.update(round_variants(float(hw["heatwave_days_per_cell"].mean())))
-allowed.update(round_variants(float(
-    monthly[monthly["year"].between(2018, 2023)]["glm_flash_box"].sum())))
+# Rebuild 2026-11-02: the GLM (lightning) arm was dropped from the
+# paper; monthly_series_all.csv no longer carries a glm_flash_box
+# column, so the sampled-flash aggregate leaves the allowed corpus.
+# The Figure 2 caption's pole-map counts join instead (dry poles 43
+# cells, wet poles 42, at most 3 months per cell;
+# SPEIBASE_REBUILD_REPORT.md, run_armA_speibase_rebuild_2026-11-02).
+for v in (43.0, 42.0, 3.0):
+    allowed.update(round_variants(v))
 base = (SRC_PKG.parent / "cdpe_sensitivity" / "manuscript"
         / "manuscript.md").read_text(encoding="utf-8")
 allowed.update(numbers_in(base))
@@ -150,6 +161,12 @@ allowed.update({str(n) for n in
                 (3, 4, 5, 6, 10, 12, 24, 36, 44, 46, 52, 90, 95, 99, 100,
                  528, 720, 756, 2000, 2018, 2023, 1980, 1995, 1996, 2010,
                  2014, 50, 25, 66, 125, 2, 1, 0)})
+# Rebuild 2026-11-02: two structural literals join the traced text
+# with the figure renumbering and the Section 3.2 figure pointer:
+# "7" (Figure 7, the monthly-series figure's new number) and "1.00"
+# (the 1.00-inch severe-hail criterion, now inside a traced sentence;
+# no corpus value formats to exactly 1.00 in the no-lightning run).
+allowed.update({"7", "1.00"})
 sections, capture = [], False
 for line in ms.splitlines():
     if line.startswith("## Abstract") or re.match(r"# [345]\.", line):
@@ -184,16 +201,20 @@ aas_found = numbers_in(re.sub(r"\[@[^\]]+\]", "",
 # Jaccard values 0.063 and 0.054; 66 and 22 remain in Table 2), and
 # one literal joins with the supplement pointer (the "1" of "S1").
 # Every remaining literal must still trace to the results corpus.
+# Rebuild 2026-11-02: the lightning literals left both packages'
+# traced sections symmetrically, and the pole-map caption and pointer
+# joined both, so the removed set is unchanged. The added set is now
+# {"1": 1}: the "S1" token stands alone, because the AAS manuscript
+# gained its own Section 3.2 "(Figure 1)" pointer in this rebuild
+# (balancing NH's), and the 2026-11-01 Figure 6 asymmetry ("6" x2) is
+# gone now that both manuscripts run to Figure 7.
 _removed = Counter(aas_found) - Counter(found)
 _added = Counter(found) - Counter(aas_found)
 check("number trace: 0 unmatched; delta is the directed S3.1 move",
       not unmatched
       and _removed == {"1.000": 1, "66": 1, "22": 1, "0.063": 1,
                        "0.054": 1}
-      and _added == {"6": 2},  # Map-figure insertion 2026-11-01: the
-      # Figure 6 caption + in-text reference join ("6" x2); the earlier
-      # "S1" gain ("1") now nets to zero against the Figure 1 -> 2
-      # renumbering inside the same traced sections
+      and _added == {"1": 1},
       f"NH checked {len(found)}, AAS checked {len(aas_found)}, "
       f"unmatched {unmatched}, removed {dict(_removed)}, "
       f"added {dict(_added)}")
@@ -209,16 +230,16 @@ def md_numbers(path):
 
 a_md = md_numbers(SRC_PKG / "manuscript" / "manuscript_aas.md")
 n_md = md_numbers(PKG / "manuscript_nh.md")
+# Rebuild 2026-11-02: the only-AAS set is still the Section 3.1 move.
+# The only-NH set is now just the "S1" pointer token: the report-
+# geography caption tokens that the 2026-11-01 map insertion added to
+# NH alone (1980, 2023, 25, 1.00, 46 x2, 8.7, 528 and the figure
+# renumbering tokens) now appear in both manuscripts and cancel, as
+# do the new pole-map caption tokens, which both manuscripts carry.
 check("numeric tokens: NH md vs AAS md (mod directed S3.1 move)",
       (a_md - n_md) == Counter({"1.000": 1, "66": 1, "22": 1,
                                 "0.063": 1, "0.054": 1})
-      and (n_md - a_md) == Counter({"1": 1}) + Counter({
-          # Map-figure insertion 2026-11-01: the new Figure 1 caption
-          # (1980, 2023, 25, 1.00, 46 x2, 8.7, 528), its in-text pointer
-          # (1), and the Figure 6 renumbering (6 x2); the caption's own
-          # "Figure 1" token replaces the renumbered heatmap caption's.
-          "1980": 1, "2023": 1, "1": 1, "6": 2, "25": 1, "1.00": 1,
-          "46": 2, "8.7": 1, "528": 1}),
+      and (n_md - a_md) == Counter({"1": 1}),
       f"only-AAS {dict((a_md - n_md))}, only-NH {dict((n_md - a_md))}")
 
 aas_text, _ = docx_text(SRC_PKG / "manuscript" / "manuscript_aas_formatted.docx")
@@ -240,11 +261,11 @@ EXPLAINED = Counter({"10.1002": 1, "9780470725184": 1, "56": 1, "8": 1,
 # the "1" of "SPI-1" leaves with the Adams note.
 EXPLAINED_NH = EXPLAINED + Counter({"2026": 6, "4": 1, "0490": 2,
                                     "00": 1})
-# Map-figure insertion 2026-11-01 (DOCX tokenisation): the new Figure 1
-# caption and pointer plus the Figure 6 renumbering, as itemised for the
-# md comparison above (the DOCX extractor nets one fewer "1").
-EXPLAINED_NH += Counter({"1980": 1, "2023": 1, "1": 1, "6": 2, "25": 1,
-                         "1.00": 1, "46": 2, "8.7": 1, "528": 1})
+# Rebuild 2026-11-02: the 2026-11-01 map-figure token block is gone
+# from EXPLAINED_NH, because the AAS manuscript now carries the same
+# two map figures with identical caption numbers, so those tokens
+# cancel between the two DOCXs. The three GLM-only references left
+# both reference lists symmetrically and add no delta.
 EXPLAINED_AAS = Counter({"1.000": 1, "66": 1, "22": 1, "0.063": 1,
                          "0.054": 1, "0019": 1, "1981": 1, "2010": 1})
 diff_aas = a_doc - n_doc
@@ -256,7 +277,9 @@ check("numeric tokens: NH docx vs AAS docx (mod explained)",
 # ---- 4. word counts -------------------------------------------------------
 abs_m = re.search(r"## Abstract\s*\n(.*?)\n\n", ms, re.S)
 abs_words = len(abs_m.group(1).split())
-check("abstract == 200 words", abs_words == 200, f"counted {abs_words}")
+# Rebuild 2026-11-02: 188 words after the lightning clauses left the
+# abstract (inside the journal's 150 to 250 word band).
+check("abstract == 188 words", abs_words == 188, f"counted {abs_words}")
 kw = re.search(r"\*\*Keywords:\*\*\s*(.+)", ms).group(1)
 check("keywords == 6", len([k for k in kw.split(",") if k.strip()]) == 6)
 pre_ref = paras[:ri]
@@ -321,16 +344,20 @@ for name in ("manuscript_nh.docx", "cover_letter_nh.docx",
         fig_md5 = {hashlib.md5((PKG / "figures" / f).read_bytes()).hexdigest()
                    for f in ("fig_s1_count_heatmaps.png", "fig_s2_variance.png",
                              "fig_h1_forest.png", "fig_h2_envelope.png",
-                             "fig_h3_series.png", "fig_map_geography.png")}
+                             "fig_h3_series.png", "fig_map_geography.png",
+                             "fig_map_poles.png")}
         emb_md5 = {hashlib.md5(z.read(n)).hexdigest() for n in media}
-        check("manuscript: 6 figures embedded, MD5-matched to sources",
-              len(media) == 6 and emb_md5 == fig_md5,
+        # Rebuild 2026-11-02: 7 figures (the pole map joined).
+        check("manuscript: 7 figures embedded, MD5-matched to sources",
+              len(media) == 7 and emb_md5 == fig_md5,
               f"media {len(media)}")
         cap_re = re.compile(r"^(Table|Figure) \d+\.")
         keeps = sum(1 for p in nh_doc.paragraphs
                     if cap_re.match(p.text.strip())
                     and p.paragraph_format.keep_with_next)
-        check("manuscript: 9 captions carry keep_with_next", keeps == 9,
+        # Rebuild 2026-11-02: 10 captions (3 tables + 7 figures); the
+        # builder sets keep_with_next on captions in the raw build.
+        check("manuscript: 10 captions carry keep_with_next", keeps == 10,
               f"found {keeps}")
 
 print()

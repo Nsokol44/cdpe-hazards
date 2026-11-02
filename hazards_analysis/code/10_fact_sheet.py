@@ -40,15 +40,12 @@ def main() -> int:
     lines.append(json.dumps(hlog))
     lines.append(f"mean monthly heatwave_days_per_cell: "
                  f"{hw['heatwave_days_per_cell'].mean():.3f}")
-    lines.append("== GLM ==")
-    lines.append(json.dumps(s["glm_completeness"]))
-    g = monthly[monthly["year"].between(2018, 2023)]
-    lines.append(f"total sampled flashes in box 2018-2023: "
-                 f"{int(g['glm_flash_box'].sum())}")
+    # Rebuild 2026-11-02: the GLM (lightning) arm was dropped from the
+    # paper on the author's direction; the summary of record carries no
+    # GLM blocks, so the GLM section and rate-ratio row are removed.
     lines.append("== RATE RATIOS ==")
     for h in ["tornado_all", "tornado_ef1plus", "tornado_ef2plus",
-              "hail_ge1in", "hail_all", "heatwave_days_per_cell",
-              "glm_flash_box"]:
+              "hail_ge1in", "hail_all", "heatwave_days_per_cell"]:
         d = s[h]
         b, e = d["baseline"], d["envelope"]
         lines.append(

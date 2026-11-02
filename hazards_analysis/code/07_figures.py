@@ -9,6 +9,12 @@ Fig H2: envelope dot strips per primary hazard (one panel each, shared
         legend above).
 Fig H3: monthly hazard series with baseline CDPE months shaded (panels,
         shared legend above).
+
+Rebuild 2026-11-02: the lightning (GLM) arm was dropped from the paper
+on the author's direction; the figures are drawn from the no-lightning
+conditioning outputs (results/rate_ratios_summary.json and companions,
+which carry no GLM blocks), so the GLM row, envelope panel, and series
+panel are removed here. Styles are otherwise unchanged.
 """
 import json
 from pathlib import Path
@@ -32,8 +38,7 @@ LABELS = {"tornado_all": "Tornadoes (all reports)",
           "tornado_ef2plus": "Tornadoes (F/EF2+)",
           "hail_ge1in": "Hail ≥ 1.00 in",
           "hail_all": "Hail (all reports)",
-          "heatwave_days_per_cell": "Heat-wave days per cell",
-          "glm_flash_box": "Lightning (GLM sampled flashes, 2018-2023)"}
+          "heatwave_days_per_cell": "Heat-wave days per cell"}
 
 
 def save(fig, name):
@@ -46,8 +51,7 @@ def save(fig, name):
 
 def fig_forest(summary, by_cfg):
     order = ["tornado_all", "tornado_ef1plus", "tornado_ef2plus",
-             "hail_ge1in", "hail_all", "heatwave_days_per_cell",
-             "glm_flash_box"]
+             "hail_ge1in", "hail_all", "heatwave_days_per_cell"]
     fig, ax = plt.subplots(figsize=(7.2, 3.9))
     ys = np.arange(len(order))[::-1]
     for y, key in zip(ys, order):
@@ -77,10 +81,13 @@ def fig_forest(summary, by_cfg):
 
 
 def fig_envelope(by_cfg, summary):
-    prim = ["tornado_all", "hail_ge1in", "heatwave_days_per_cell",
-            "glm_flash_box"]
-    fig, axes = plt.subplots(2, 2, figsize=(7.2, 5.2), sharex=True)
-    for ax, key, lab in zip(axes.ravel(), prim, "abcd"):
+    # Rebuild 2026-11-02: three panels in one row, with the explicit
+    # separated layout the NH package's step 26 established (suptitle,
+    # then the shared legend, then the panels), because the tight-bbox
+    # arrangement collided the legend with the suptitle at this height.
+    prim = ["tornado_all", "hail_ge1in", "heatwave_days_per_cell"]
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.6), sharex=True)
+    for ax, key, lab in zip(axes.ravel(), prim, "abc"):
         sub = by_cfg[(by_cfg["hazard"] == key)
                      & (by_cfg["included_in_envelope"])
                      & (by_cfg["rr"].notna())].sort_values("rr")
@@ -93,27 +100,33 @@ def fig_envelope(by_cfg, summary):
         ax.axvline(1.0, color="k", linewidth=0.8, linestyle="--")
         ax.axvline(b["rr"], color=OKABE["vermillion"], linewidth=1.0,
                    label="Baseline configuration")
-        ax.set_title(f"({lab}) {LABELS[key]}", loc="left", fontsize=9.5)
+        ax.set_title(f"({lab}) {LABELS[key]}", loc="left", fontsize=10)
         ax.set_ylabel("Configuration (sorted)")
         ax.grid(alpha=0.25)
-    for ax in axes[1]:
         ax.set_xlabel("Rate ratio (log scale)")
-    for ax in axes.ravel():
         ax.set_xscale("log")
-    handles, labels = axes[0][0].get_legend_handles_labels()
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.subplots_adjust(left=0.07, right=0.99, top=0.78, bottom=0.16,
+                        wspace=0.24)
     fig.legend(handles, labels, loc="upper center",
-               bbox_to_anchor=(0.5, 1.02), frameon=False)
+               bbox_to_anchor=(0.5, 0.90), frameon=False)
     fig.suptitle("Rate ratios across the configuration envelope",
-                 x=0.02, ha="left", fontsize=10)
-    save(fig, "fig_h2_envelope")
+                 x=0.02, ha="left", y=0.985, fontsize=11)
+    FIG.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIG / "fig_h2_envelope.png", dpi=300)
+    fig.savefig(FIG / "fig_h2_envelope.pdf")
+    plt.close(fig)
+    print("wrote fig_h2_envelope")
 
 
 def fig_series(monthly, summary):
-    fig, axes = plt.subplots(4, 1, figsize=(7.2, 7.2), sharex=True)
+    # Rebuild 2026-11-02: explicit layout with the shared legend on its
+    # own row between the suptitle and the panels (the tight-bbox
+    # arrangement overlapped the legend with the suptitle).
+    fig, axes = plt.subplots(3, 1, figsize=(7.2, 5.9), sharex=True)
     panels = [("tornado_all", "Reports (count)", "a"),
               ("hail_ge1in", "Reports (count)", "b"),
-              ("heatwave_days_per_cell", "Days per cell", "c"),
-              ("glm_flash_box", "Flashes (count, sampled)", "d")]
+              ("heatwave_days_per_cell", "Days per cell", "c")]
     months = pd.to_datetime(monthly["month"])
     cdpe = monthly["cdpe_baseline"].values.astype(bool)
     for ax, (col, ylab, lab) in zip(axes, panels):
@@ -124,8 +137,6 @@ def fig_series(monthly, summary):
         for mm, is_c in zip(months, cdpe):
             if not is_c:
                 continue
-            if col == "glm_flash_box" and mm < pd.Timestamp("2018-01-01"):
-                continue  # lightning panel shades only its own window
             ax.axvspan(mm, mm + pd.Timedelta(days=30),
                        color=OKABE["orange"], alpha=0.35,
                        label="Baseline CDPE month" if not labelled else None)
@@ -135,11 +146,17 @@ def fig_series(monthly, summary):
         ax.grid(alpha=0.25)
     axes[-1].set_xlabel("Month")
     handles, labels = axes[0].get_legend_handles_labels()
+    fig.subplots_adjust(left=0.085, right=0.99, top=0.885, bottom=0.075,
+                        hspace=0.55)
     fig.legend(handles, labels, loc="upper center",
-               bbox_to_anchor=(0.5, 1.01), frameon=False)
+               bbox_to_anchor=(0.5, 0.955), frameon=False)
     fig.suptitle("Monthly hazard series and baseline CDPE regime months",
-                 x=0.01, ha="left", fontsize=10)
-    save(fig, "fig_h3_series")
+                 x=0.01, ha="left", y=0.99, fontsize=10)
+    FIG.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIG / "fig_h3_series.png", dpi=300)
+    fig.savefig(FIG / "fig_h3_series.pdf")
+    plt.close(fig)
+    print("wrote fig_h3_series")
 
 
 def main() -> int:

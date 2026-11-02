@@ -549,7 +549,9 @@ def main() -> int:
             n_captions += 1
         if par._p.xpath(".//w:drawing"):
             par.paragraph_format.keep_with_next = True
-    assert n_captions == 9, f"expected 9 captions, found {n_captions}"
+    # Rebuild 2026-11-02: 10 captions (3 tables + 7 figures; the pole
+    # map joined as Figure 2 and the lightning arm was removed).
+    assert n_captions == 10, f"expected 10 captions, found {n_captions}"
 
     cp = doc.core_properties
     cp.author = "Nicholas J. Sokol"

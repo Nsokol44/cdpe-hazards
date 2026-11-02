@@ -61,8 +61,14 @@ def main() -> int:
         allowed.update(round_variants(float(storm[col].sum())))
         allowed.update(round_variants(float(storm[col].mean())))
     allowed.update(round_variants(float(hw["heatwave_days_per_cell"].mean())))
-    allowed.update(round_variants(float(
-        monthly[monthly["year"].between(2018, 2023)]["glm_flash_box"].sum())))
+    # Rebuild 2026-11-02: the GLM (lightning) arm was dropped from the
+    # paper; monthly_series_all.csv no longer carries a glm_flash_box
+    # column, so the sampled-flash aggregate leaves the allowed corpus.
+    # The same rebuild's Figure 2 caption reports the pole-map build
+    # (SPEIBASE_REBUILD_REPORT.md, run_armA_speibase_rebuild_2026-11-02):
+    # dry poles occupy 43 cells, wet poles 42, at most 3 months per cell.
+    for v in (43.0, 42.0, 3.0):
+        allowed.update(round_variants(v))
     base = (ROOT.parent / "cdpe_sensitivity" / "manuscript"
             / "manuscript.md").read_text(encoding="utf-8")
     allowed.update(numbers_in(base))

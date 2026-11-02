@@ -2,24 +2,44 @@
 
 Archive supporting the manuscript "How much does the definition matter?
 Concurrent drought-pluvial regimes and the occurrence of tornadoes, hail,
-heat waves, and lightning over the contiguous United States" by
+and heat waves over the contiguous United States" by
 Nicholas J. Sokol, submitted to Natural Hazards.
 
 Deposited in this repository (github.com/Nsokol44/cdpe-hazards)
 on 2026-11-01.
+
+## Rebuild — 2026-11-02
+
+On the author's direction, the lightning (GLM) arm was removed from the
+manuscript, and the pole-geography map of the 46 baseline CDPE months
+was added as Figure 2. The conditioning was rerun without lightning
+(`hazards_analysis/code/06b_conditioning_no_lightning.py`, the frozen
+step 06 with the GLM estimates discarded; every retained estimate is
+bit-identical to the previous run of record), and
+`hazards_analysis/results/` now holds those no-lightning outputs. The
+SPEIbase detection rerun with pole locations saved is
+`sensitivity_analysis/scripts/run_arm_a_speibase_rebuild.py`; its
+baseline pole table is
+`monthsets/run_armA_speibase_rebuild_2026-11-02/baseline_poles.csv`,
+and `nh_build/code/28_build_rebuild_maps.py` draws the two map figures
+from it and from the archived report series. The GLM fetch and series
+steps (03, and the lightning parts of the original step 06 run) remain
+in the archive as the record of the analysis as first run.
 
 ## Contents
 
 - `nh_build/` - the Natural Hazards submission package build: the
   manuscript, cover letter and supplementary information sources
   (Markdown with pandoc-style citations), the bibliography
-  (references_nh.bib), and `code/` steps 20 to 26 (the document builds,
-  the verification suite, and the publication figure regenerations for
-  Figures 1, 2 and 4).
+  (references_nh.bib), and `code/` steps 20 to 28 (the document builds,
+  the verification suite, the publication figure regenerations, and
+  the rebuild map builder).
 - `hazards_analysis/` - the analysis pipeline of record for the
-  hazard-conditioning arm and for the Storm Events, heat-wave and
-  lightning series (steps 00 to 12), with its pinned requirements.txt
-  and run_all.sh driver, plus its results tables.
+  hazard-conditioning arm and for the Storm Events and heat-wave
+  series (steps 00 to 12, plus step 06b, the no-lightning conditioning
+  rerun whose outputs the current manuscript reports), with its
+  pinned requirements.txt and run_all.sh driver, plus its results
+  tables.
 - `sensitivity_analysis/` - the CDPE sensitivity pipeline (the
   cdpe_sens package and its run scripts) that produced the
   756-configuration ensemble in two arms.
@@ -50,7 +70,8 @@ python-docx 1.2.0).
 3. Submission documents: `python nh_build/code/20_build_nh_docx.py`,
    `21_build_nh_cover_letter.py` and `23_build_nh_supplement.py` build
    the DOCX files from the Markdown sources. Steps 24 to 26 regenerate
-   Figures 1, 2 and 4 from the archived result tables.
+   the sensitivity and envelope figures from the archived result
+   tables, and step 28 draws the two map figures (Figures 1 and 2).
    `python nh_build/code/22_verify_nh.py` runs the verification suite
    (citation closure, number trace against the results corpus, and
    document hygiene checks).

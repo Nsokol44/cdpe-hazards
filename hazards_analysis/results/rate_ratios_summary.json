@@ -65,28 +65,6 @@
     "gate_G2_robust": false,
     "tier": "primary"
   },
-  "glm_flash_box": {
-    "window_years": [
-      2018,
-      2023
-    ],
-    "baseline_config": "SPEI-1|thr=1.5|r=4.0",
-    "baseline": {
-      "rr": 0.9847435952509194,
-      "ci_lo": 0.8442852946874394,
-      "ci_hi": 1.2047558782388597,
-      "n_cdpe_months": 4
-    },
-    "envelope": {
-      "n_configs_included": 20,
-      "rr_min": 0.9194181009963397,
-      "rr_max": 1.1945954414007138,
-      "share_same_side_as_baseline": 0.5,
-      "share_ci_excludes_1": 0.0
-    },
-    "gate_G2_robust": false,
-    "tier": "primary"
-  },
   "tornado_ef1plus": {
     "window_years": [
       1980,
@@ -224,13 +202,5 @@
         "n_cdpe_months": 25
       }
     }
-  },
-  "glm_completeness": {
-    "months_in_window": 72,
-    "months_valid": 70,
-    "effective_window_from": "2018-03",
-    "months_in_effective_window": 70,
-    "months_valid_effective": 70,
-    "gate_G1_pass": true
   }
 }
