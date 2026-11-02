@@ -4,7 +4,7 @@ author: "Nicholas J. Sokol"
 affiliation: "Department of Geography & Sustainability, University of Tennessee, Knoxville, TN, USA"
 ---
 
-Supplementary Information for the manuscript "How much does the definition matter? Concurrent drought-pluvial regimes and the occurrence of tornadoes, hail, and heat waves over the contiguous United States", submitted to Natural Hazards.
+Supplementary Information for the manuscript "Do tornadoes, hail, and heat waves occur differently during concurrent drought-pluvial months? A count-model analysis over the contiguous United States", submitted to Natural Hazards.
 
 ## S1. The aligned catalog and the Arm A port
 
@@ -144,6 +144,19 @@ The pole-relative table of the main text (its Table 3) is repeated here for comp
 | Hail (at least 1.00 in) | Near dry pole | 0.71 (0.28 to 1.02) | 572 | 2.2 percent |
 | Hail (at least 1.00 in) | Near wet pole | 1.13 (0.69 to 1.74) | 1,062 | 4.1 percent |
 | Hail (at least 1.00 in) | Elsewhere | 1.04 (0.78 to 1.35) | 24,475 | 93.7 percent |
+
+The lagged run classifies the following month's reports by the regime month poles, with controls drawn from the following months of matched non-CDPE regime months (1,979 control month instances). It gives:
+
+| Hazard | Stratum | Rate ratio (95 percent interval) | Following-month reports | Share of following-month reports |
+|---|---|---|---|---|
+| Tornadoes | Near wet pole | 1.37 (0.83 to 1.92) | 286 | 3.7 percent |
+| Tornadoes | Near dry pole | 1.40 (0.91 to 2.17) | 307 | 4.0 percent |
+| Tornadoes | Elsewhere | 1.13 (0.86 to 1.48) | 7,036 | 92.2 percent |
+| Hail (at least 1.00 in) | Near wet pole | 1.19 (0.61 to 1.94) | 1,248 | 3.8 percent |
+| Hail (at least 1.00 in) | Near dry pole | 0.84 (0.37 to 1.52) | 869 | 2.6 percent |
+| Hail (at least 1.00 in) | Elsewhere | 1.14 (0.88 to 1.44) | 31,085 | 93.6 percent |
+
+Every lagged interval includes 1, and the same-month near-dry tornado deficit inverts (0.56 same-month against 1.40 lagged). Across both timings the pole-relative family comprises 12 stratum-hazard estimates, with no multiplicity adjustment. The same-month pattern is reported in the main text as exploratory, because it carries the reverse-causation channel in geographic form: the wet pole is where the regime month's rain was heaviest, and storms produce rain.
 
 Heat waves have no pole-relative strata, because the heat-wave field is a gridMET mean over its own land grid rather than report counts on the 1-degree report grid.
 

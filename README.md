@@ -1,8 +1,8 @@
-# Code and CDPE month sets: "How much does the definition matter?"
+# Code and CDPE month sets: CDPE hazards frequency analysis
 
-Archive supporting the manuscript "How much does the definition matter?
-Concurrent drought-pluvial regimes and the occurrence of tornadoes, hail,
-and heat waves over the contiguous United States" by
+Archive supporting the manuscript "Do tornadoes, hail, and heat waves
+occur differently during concurrent drought-pluvial months? A
+count-model analysis over the contiguous United States" by
 Nicholas J. Sokol, submitted to Natural Hazards.
 
 Deposited in this repository (github.com/Nsokol44/cdpe-hazards)
@@ -31,9 +31,9 @@ in the archive as the record of the analysis as first run.
 - `nh_build/` - the Natural Hazards submission package build: the
   manuscript, cover letter and supplementary information sources
   (Markdown with pandoc-style citations), the bibliography
-  (references_nh.bib), and `code/` steps 20 to 28 (the document builds,
-  the verification suite, the publication figure regenerations, and
-  the rebuild map builder).
+  (references_nh.bib), and `code/` steps 20 to 43 (the document builds,
+  the verification suite, the publication figure regenerations, the
+  rebuild map builder, and the fix-round steps 39 to 43).
 - `hazards_analysis/` - the analysis pipeline of record for the
   hazard-conditioning arm and for the Storm Events and heat-wave
   series (steps 00 to 12, plus step 06b, the no-lightning conditioning
@@ -106,3 +106,34 @@ statistics: `hazards_analysis/results/phase3_2026-11-02/` (one-command
 rerun `nh_build/code/run_phase3.sh`); the Arm B tie-break correction
 and redone variance decomposition are under `sensitivity_analysis/`
 and `monthsets/run_armB_tiefix_2026-11-02/`.
+
+## Fix round 2 — 2026-11-02
+
+After the author's verification read of the rebuilt package, the
+manuscript was retitled (title above) and four checks were added,
+under `nh_build/code/` steps 39 to 42 with outputs in
+`nh_build/results_fixround2_2026-11-02/`:
+
+- Step 39 verifies the heat-wave series against the raw gridMET daily
+  Tmax files for late 2010 to mid 2012: the early-2011 plateau in the
+  series of record reproduces (plateau months within about 3 percent),
+  so the frozen series stands.
+- Step 40 reruns the frozen detector with the domain box expanded
+  north by 3 and 5 degrees: the northern dry-pole pile-up is
+  substantially an edge artifact in pole location (retained poles move
+  north, never south), while month qualification is more robust. The
+  headline catalog is unchanged; see `EDGE_TEST_NOTE.md` in the
+  results folder.
+- Step 41 adds the lagged pole-relative strata (following-month
+  reports by regime-month poles). Every lagged interval includes 1
+  and the same-month near-dry tornado deficit inverts, so the
+  same-month pattern is reported in the paper as exploratory. The
+  pole-relative family is 12 stratum-hazard estimates across both
+  timings.
+- Step 42 computes the month-paired bootstrap difference between the
+  same-month and lagged count-model arms: all three differences
+  include zero, and the paper reports the two arms without a causal
+  reading of their difference.
+
+The full record is the Fix Round 2 addendum in
+`nh_build/IMPLEMENTATION_CHECKLIST_2026-11-02.md`.
